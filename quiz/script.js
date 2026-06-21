@@ -24,87 +24,477 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // ==========================================
-    // BASE 2: LÂMINAS HIGIENIZADA (65 Questões Únicas)
+    // BASE 2: LÂMINAS HIGIENIZADAS (65 Questões Célula/Órgão/Função + Tecido)
     // ==========================================
     const imageQuestionsData = [
-        // LOTE 1 (8 imagens)
-        { image: "WhatsApp Image 2026-06-21 at 14.48.32.jpeg", text: "Projeções cônicas na mucosa e epitélio estratificado pavimentoso fortemente queratinizado.", options: ["Papilas filiformes", "Vilosidades intestinais", "Pregas gástricas", "Epitélio esofágico"], correct: "Papilas filiformes", explanation: "Papilas filiformes são finas, queratinizadas e sem corpúsculos gustativos." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.34 (3).jpeg", text: "As estruturas circuladas em vermelho no centro dos lóbulos hepáticos correspondem a qual vaso?", options: ["Veia centro-lobular", "Ramo da veia porta", "Artéria hepática", "Ducto biliar"], correct: "Veia centro-lobular", explanation: "Fica no centro do lóbulo clássico, drenando os sinusoides." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.34 (4).jpeg", text: "Tríade portal: Seta azul (epitélio cúbico) e vermelha (parede muscular). Identifique:", options: ["Ducto biliar e ramo da artéria hepática", "Veia porta e ducto biliar", "Artéria hepática e veia central", "Ducto biliar e veia porta"], correct: "Ducto biliar e ramo da artéria hepática", explanation: "Ducto = epitélio cúbico. Artéria = muscular espessa." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.33 (2).jpeg", text: "Ausência de vilosidades, criptas profundas e muitas células caliciformes. Trata-se do:", options: ["Intestino grosso (Cólon)", "Estômago", "Duodeno", "Íleo"], correct: "Intestino grosso (Cólon)", explanation: "O cólon não possui vilosidades e tem glândulas ricas em muco." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.34 (2).jpeg", text: "Mucosa com epitélio cilíndrico simples, camada fibromuscular, SEM submucosa verdadeira.", options: ["Vesícula biliar", "Estômago", "Intestino delgado", "Bexiga urinária"], correct: "Vesícula biliar", explanation: "Falta de submucosa é o diferencial da vesícula." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.33.jpeg", text: "Epitélio com planura estriada. Setas vermelhas apontam para glândulas unicelulares de muco. São:", options: ["Células caliciformes", "Células de Paneth", "Enterócitos", "Células parietais"], correct: "Células caliciformes", explanation: "Têm formato de cálice e acumulam mucina apical." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.34 (1).jpeg", text: "Ácinos serosos. Células circuladas, pálidas no centro do ácino, são exclusivas de qual órgão?", options: ["Pâncreas (células centroacinares)", "Glândula parótida", "Fígado", "Estômago"], correct: "Pâncreas (células centroacinares)", explanation: "Elas iniciam o sistema de ductos dentro do próprio ácino pancreático." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.33 (3).jpeg", text: "Aglomerado basofílico circulado em vermelho na parede digestória. Corresponde a um:", options: ["Nódulo/Folículo Linfoide", "Gânglio do plexo mioentérico", "Ácino seromucoso", "Glândula de Brünner"], correct: "Nódulo/Folículo Linfoide", explanation: "MALT - Tecido linfoide associado à mucosa." },
-        
-        // LOTE 2 (9 imagens)
-        { image: "WhatsApp Image 2026-06-21 at 14.48.34.jpeg", text: "Estrutura circular mais pálida no centro de ácinos serosos pancreáticos.", options: ["Ilhota de Langerhans", "Corpúsculo Renal", "Folículo Ovariano", "Ácino Mucoso"], correct: "Ilhota de Langerhans", explanation: "Porção endócrina do pâncreas." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.35 (4).jpeg", text: "Células epiteliais altas e aglomeradas no túbulo contorcido distal adjacente ao glomérulo.", options: ["Mácula Densa", "Podócito", "Células Justaglomerulares", "Células Mesangiais"], correct: "Mácula Densa", explanation: "Atua como osmorreceptor renal de sódio." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.35 (3).jpeg", text: "Inúmeros corpúsculos renais e túbulos contorcidos confirmam que esta região é o:", options: ["Córtex Renal", "Medula Renal", "Pelve Renal", "Cápsula Renal"], correct: "Córtex Renal", explanation: "Os glomérulos ficam restritos ao córtex." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.35 (2).jpeg", text: "Estrutura histológica principal marcador divisório por ser encontrada APENAS na região cortical do rim:", options: ["Corpúsculo Renal", "Túbulo Coletor", "Alça de Henle", "Vasa Recta"], correct: "Corpúsculo Renal", explanation: "Nunca adentram a medula renal." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.35 (1).jpeg", text: "Principal função da Célula de Sertoli no túbulo seminífero:", options: ["Suporte, nutrição e barreira hemato-testicular", "Produção de testosterona", "Contração tubular", "Diferenciação direta em espermatozoide"], correct: "Suporte, nutrição e barreira hemato-testicular", explanation: "Célula somática essencial para proteger os espermatozoides." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.35.jpeg", text: "Cordões ricamente vascularizados com células acidófilas e basófilas. Órgão endócrino:", options: ["Adenohipófise", "Neurohipófise", "Córtex da Suprarrenal", "Paratireoide"], correct: "Adenohipófise", explanation: "Pars distalis apresenta forte distinção tintorial celular." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.36 (4).jpeg", text: "Epitélio característico das vias urinárias (ureter):", options: ["Epitélio de Transição (Urotélio)", "Epitélio Pseudoestratificado Cilíndrico", "Epitélio Cúbico Simples", "Epitélio Estratificado Pavimentoso"], correct: "Epitélio de Transição (Urotélio)", explanation: "Adapta-se ao estiramento com suas células em guarda-chuva." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.36 (3).jpeg", text: "Túbulos do rim (4 e 5) revestidos por uma única camada de células em formato de cubo:", options: ["Epitélio Cúbico Simples", "Epitélio Pavimentoso Simples", "Epitélio Cilíndrico Simples", "Epitélio de Transição"], correct: "Epitélio Cúbico Simples", explanation: "Típico de túbulos menores e ductos coletores." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.36 (2).jpeg", text: "Epitélio com camada acelular de queratina extremamente espessa e eosinofílica:", options: ["Pele Espessa (Palma/Planta)", "Esôfago", "Pele Fina", "Traqueia"], correct: "Pele Espessa (Palma/Planta)", explanation: "Ausência de pelos e gigantesco estrato córneo." },
-        
-        // LOTE 3 (9 imagens)
-        { image: "WhatsApp Image 2026-06-21 at 14.48.32 (1).jpeg", text: "Células de citoplasma volumoso e eosinofílico na mucosa gástrica. Nome e secreção:", options: ["Célula parietal / Ácido clorídrico (HCl)", "Célula principal / Pepsinogênio", "Célula mucosa / Muco", "Célula enteroendócrina / Gastrina"], correct: "Célula parietal / Ácido clorídrico (HCl)", explanation: "Produzem HCl e fator intrínseco." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.33 (1).jpeg", text: "Mucosa com projeções digitiformes (vilosidades) e criptas. Qual segmento?", options: ["Intestino delgado", "Estômago", "Intestino grosso", "Esôfago"], correct: "Intestino delgado", explanation: "Vilosidades são exclusivas do intestino delgado." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.36 (1).jpeg", text: "Estriações longitudinais no córtex renal formadas por ductos coletores que sobem da medula:", options: ["Raios medulares (de Ferrein)", "Colunas renais (de Bertin)", "Túbulos contorcidos proximais", "Alças de Henle"], correct: "Raios medulares (de Ferrein)", explanation: "São extensões de tubos retos em meio ao córtex." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.36.jpeg", text: "Tecido conjuntivo denso que recobre externamente o Rim:", options: ["Cápsula Renal", "Túnica Albugínea", "Pleura Visceral", "Peritônio Parietal"], correct: "Cápsula Renal", explanation: "Protege e modela o órgão." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.37.jpeg", text: "Células grandes acidófilas no tecido conjuntivo testicular. Principal função:", options: ["Produção e secreção de testosterona", "Formação da barreira hemato-testicular", "Sustentação das espermatogônias", "Contração tubular"], correct: "Produção e secreção de testosterona", explanation: "Células de Leydig (intersticiais)." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.37 (4).jpeg", text: "Seta verde aponta a maior célula germinativa no túbulo seminífero, com cromatina em grumos:", options: ["Espermatócito primário", "Espermatogônia", "Espermátide", "Célula de Sertoli"], correct: "Espermatócito primário", explanation: "Fica muito tempo na Prófase I da meiose, tornando-se volumosa." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.38 (4).jpeg", text: "Seta azul aponta o folheto parietal da Cápsula de Bowman. Qual o tipo de epitélio?", options: ["Epitélio pavimentoso simples", "Epitélio cúbico simples", "Epitélio de transição", "Epitélio cilíndrico simples"], correct: "Epitélio pavimentoso simples", explanation: "Camada externa muito fina para delimitar o espaço capsular." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.38 (5).jpeg", text: "Cistos com material coloide (ciano) na Pars Intermedia da hipófise representam:", options: ["Cistos de Rathke (Resquícios da bolsa de Rathke)", "Corpos de Herring", "Folículos tireoidianos", "Ilhotas de Langerhans"], correct: "Cistos de Rathke (Resquícios da bolsa de Rathke)", explanation: "Vestígios do ectoderma oral embriológico." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.38 (3).jpeg", text: "Região à direita, intensamente celular e corada, corresponde a:", options: ["Adeno-hipófise (Pars distalis)", "Neuro-hipófise (Pars nervosa)", "Pars tuberalis", "Hipotálamo"], correct: "Adeno-hipófise (Pars distalis)", explanation: "Natureza glandular cordonal rica em células." },
+        // LOTE 1
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.32.jpeg", 
+            text: "Observando o corte histológico com projeções pontiagudas apicais, responda: Qual é este órgão? Além disso, especifique o tipo de tecido de revestimento superficial.", 
+            options: ["Língua / Tecido Epitelial Estratificado Pavimentoso Queratinizado", "Esôfago / Tecido Epitelial Estratificado Pavimentoso Não-Queratinizado", "Pele Fina / Tecido Epitelial Cúbico Simples", "Intestino Grosso / Tecido Epitelial Cilíndrico Simples"], 
+            correct: "Língua / Tecido Epitelial Estratificado Pavimentoso Queratinizado", 
+            explanation: "As papilas filiformes da língua sofrem forte atrito, necessitando de um epitélio pluriestratificado com queratina para proteção." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.34 (3).jpeg", 
+            text: "Focando na grande estrutura vascular circulada no centro do parênquima, responda: Qual é este órgão? Além disso, especifique o tipo de tecido que forma o endotélio desse vaso.", 
+            options: ["Fígado / Tecido Epitelial Pavimentoso Simples", "Pâncreas / Tecido Conjuntivo Reticular", "Baço / Tecido Epitelial Cúbico Simples", "Tireoide / Tecido Epitelial Pavimentoso Estratificado"], 
+            correct: "Fígado / Tecido Epitelial Pavimentoso Simples", 
+            explanation: "Trata-se da veia centro-lobular do fígado. Como todo vaso sanguíneo, seu endotélio é um tecido epitelial de revestimento pavimentoso simples." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.34 (4).jpeg", 
+            text: "O corte apresenta uma região de tríade no parênquima. Qual é a principal função da estrutura apontada pela seta vermelha (vaso de menor luz e parede grossa)? Especifique o tecido formador de sua camada média.", 
+            options: ["Fornecer sangue altamente oxigenado / Tecido Muscular Liso", "Drenar a bile produzida / Tecido Epitelial Cúbico Simples", "Trazer sangue rico em nutrientes do intestino / Tecido Conjuntivo Frouxo", "Absorver glicose / Tecido Epitelial Pavimentoso Simples"], 
+            correct: "Fornecer sangue altamente oxigenado / Tecido Muscular Liso", 
+            explanation: "A seta aponta para o ramo da artéria hepática (parede espessa devido ao músculo liso), responsável por nutrir os hepatócitos com oxigênio." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.33 (2).jpeg", 
+            text: "Corte transversal do tubo digestório exibindo profundas glândulas retas e ausência de vilosidades. Qual é este órgão? Especifique o tipo de tecido do seu revestimento mucoso.", 
+            options: ["Intestino Grosso (Cólon) / Tecido Epitelial Cilíndrico Simples com Caliciformes", "Intestino Delgado (Duodeno) / Tecido Epitelial Pseudoestratificado", "Estômago (Corpo) / Tecido Epitelial Estratificado Pavimentoso", "Vesícula Biliar / Tecido Epitelial Cúbico Simples"], 
+            correct: "Intestino Grosso (Cólon) / Tecido Epitelial Cilíndrico Simples com Caliciformes", 
+            explanation: "A falta de vilosidades aliada às numerosas criptas repletas de células caliciformes define a histologia do cólon para a lubrificação fecal." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.34 (2).jpeg", 
+            text: "Este órgão apresenta mucosa preagueada e uma forte camada muscular, mas não possui submucosa verdadeira. Qual é este órgão? Especifique o tecido do seu epitélio superficial.", 
+            options: ["Vesícula Biliar / Tecido Epitelial Cilíndrico Simples", "Bexiga Urinária / Tecido Epitelial de Transição (Urotélio)", "Estômago / Tecido Epitelial Cilíndrico Estratificado", "Esôfago / Tecido Epitelial Pavimentoso Estratificado"], 
+            correct: "Vesícula Biliar / Tecido Epitelial Cilíndrico Simples", 
+            explanation: "A ausência de lâmina muscular da mucosa e de submucosa é o critério diagnóstico clássico da vesícula biliar." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.33.jpeg", 
+            text: "As setas vermelhas apontam para células de citoplasma apical pálido inseridas no epitélio intestinal. Qual célula é esta? Especifique o tipo de tecido em que ela se enquadra estruturalmente.", 
+            options: ["Célula Caliciforme / Tecido Epitelial Glandular Exócrino Unicelular", "Célula de Paneth / Tecido Epitelial Glandular Endócrino", "Enterócito / Tecido Conjuntivo Mucoso", "Célula Parietal / Tecido Epitelial Glandular Multicelular"], 
+            correct: "Célula Caliciforme / Tecido Epitelial Glandular Exócrino Unicelular", 
+            explanation: "As células caliciformes são o clássico exemplo de glândulas exócrinas unicelulares, especializadas em produzir muco protetor." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.34 (1).jpeg", 
+            text: "No centro das unidades secretoras arredondadas observam-se núcleos de células mais pálidas, que se insinuam para o interior do ácino. Qual célula é esta? Especifique o tipo de tecido em torno dela.", 
+            options: ["Célula Centroacinar / Tecido Epitelial Glandular Exócrino Acinoso Seroso", "Célula Mioepitelial / Tecido Muscular Liso", "Hepatócito / Tecido Epitelial Glandular Misto", "Célula Mucosa do Colo / Tecido Epitelial Glandular Tubular"], 
+            correct: "Célula Centroacinar / Tecido Epitelial Glandular Exócrino Acinoso Seroso", 
+            explanation: "Exclusivas do pâncreas exócrino, as células centroacinares representam a porção inicial dos ductos intercalares que invaginam para dentro do ácino seroso." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.33 (3).jpeg", 
+            text: "Observa-se um maciço aglomerado fortemente basofílico na camada submucosa do intestino. Qual é a principal função desta estrutura anatômica? Especifique o tipo de tecido que a compõe.", 
+            options: ["Defesa imunológica local (MALT) / Tecido Conjuntivo Reticular com linfócitos", "Peristaltismo intestinal / Tecido Muscular Liso", "Secreção de muco alcalino / Tecido Epitelial Glandular Exócrino", "Absorção lipídica / Tecido Epitelial Cilíndrico Simples"], 
+            correct: "Defesa imunológica local (MALT) / Tecido Conjuntivo Reticular com linfócitos", 
+            explanation: "Trata-se de um folículo linfoide (MALT). É suportado por uma malha de tecido conjuntivo reticular densamente povoado por linfócitos para patrulha imunológica." 
+        },
 
-        // LOTE 4 (10 imagens)
-        { image: "WhatsApp Image 2026-06-21 at 14.48.38 (1).jpeg", text: "Ducto transversal com epitélio pseudoestratificado cilíndrico com estereocílios e músculo liso:", options: ["Epidídimo", "Ducto Deferente", "Ureter", "Traqueia"], correct: "Epidídimo", explanation: "Estereocílios longos absorvem o excesso de fluido." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.38.jpeg", text: "Ducto altamente enovelado com espermatozoides no lúmen:", options: ["Epidídimo", "Túbulo Seminífero", "Rede Testis", "Ducto Deferente"], correct: "Epidídimo", explanation: "Um único ducto gigantesco enovelado." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.39 (5).jpeg", text: "Concreções calcáreas (areia cerebral) são marcadores de qual glândula?", options: ["Glândula Pineal", "Glândula Paratireoide", "Hipófise", "Suprarrenal"], correct: "Glândula Pineal", explanation: "Corpora arenacea aumentam com a idade." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.39 (4).jpeg", text: "Dilatações axonais neurossecretoras (Corpúsculos de Herring) e Pituícitos. Região e função:", options: ["Neuro-hipófise / Armazenar e liberar ADH e Ocitocina", "Adeno-hipófise / Produzir GH", "Hipotálamo / Sintetizar hormônios", "Pineal / Secretar Melatonina"], correct: "Neuro-hipófise / Armazenar e liberar ADH e Ocitocina", explanation: "A neuro-hipófise não sintetiza hormônios, apenas armazena." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.39 (3).jpeg", text: "Células com grânulos acidófilos, basófilos e cromófobas. Parte da hipófise representada:", options: ["Adeno-hipófise (Pars distalis)", "Neuro-hipófise (Pars nervosa)", "Pars intermedia", "Infundíbulo"], correct: "Adeno-hipófise (Pars distalis)", explanation: "O parênquima clássico que produz as trofinas." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.39 (2).jpeg", text: "Fronteira com cistos coloides entre porção glandular e porção neural. Região limítrofe:", options: ["Pars intermedia da hipófise", "Folículo da tireoide", "Medula da suprarrenal", "Eminência mediana"], correct: "Pars intermedia da hipófise", explanation: "Separa as duas origens embrionárias." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.39 (1).jpeg", text: "Resquícios embriológicos na 'Pars Intermedia' repletos de coloide eosinofílico:", options: ["Cistos de Rathke", "Folículos de Graaf", "Corpos de Herring", "Ilhotas de Langerhans"], correct: "Cistos de Rathke", explanation: "Vestígios da fenda hipofisária." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.39.jpeg", text: "Células grandes, poliédricas no interstício testicular (Células de Leydig). Função:", options: ["Produção de testosterona", "Formação da barreira hemato-testicular", "Sustentação dos espermatozoides", "Contração tubular"], correct: "Produção de testosterona", explanation: "Sintetizam os andrógenos locais e sistêmicos." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.40 (4).jpeg", text: "Segmento modificado do túbulo distal com células epiteliais altas e núcleos apinhados no polo vascular:", options: ["Mácula Densa", "Cápsula de Bowman", "Célula Justaglomerular", "Podócitos"], correct: "Mácula Densa", explanation: "Sensor de sódio/cloreto do aparelho justaglomerular." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.40 (3).jpeg", text: "Espaços vasculares entre cordões de hepatócitos. Classificação dos capilares:", options: ["Capilares sinusoides", "Capilares contínuos", "Capilares fenestrados", "Artérias de distribuição"], correct: "Capilares sinusoides", explanation: "Endotélio descontínuo para trocas intensas." },
+        // LOTE 2
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.34.jpeg", 
+            text: "A imagem evidencia uma estrutura circular pálida mergulhada no parênquima escuro acinar. Qual é a principal função desta estrutura? Especifique o tipo de tecido.", 
+            options: ["Regulação da glicemia sanguínea (Insulina/Glucagon) / Tecido Epitelial Glandular Endócrino Cordonal", "Produção de enzimas digestivas ativas / Tecido Epitelial Glandular Exócrino", "Filtração glomerular / Tecido Epitelial Pavimentoso Simples", "Maturação folicular / Tecido Epitelial Estratificado Cúbico"], 
+            correct: "Regulação da glicemia sanguínea (Insulina/Glucagon) / Tecido Epitelial Glandular Endócrino Cordonal", 
+            explanation: "A Ilhota de Langerhans é um cordão endócrino intrincado responsável pela homeostase glicêmica do corpo." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.35 (4).jpeg", 
+            text: "A seta indica um agrupamento epitelial especializado encostado no polo vascular de um glomérulo. Qual é a principal função desta estrutura? Especifique o tecido que a forma.", 
+            options: ["Sensor osmótico de Sódio e Cloreto (Quimiorrecepção) / Tecido Epitelial Cilíndrico Simples", "Secreção de Renina / Tecido Muscular Liso Modificado", "Barreira de Filtração Plasmática / Tecido Epitelial Pavimentoso", "Reabsorção de glicose / Tecido Epitelial Cúbico com Microvilosidades"], 
+            correct: "Sensor osmótico de Sódio e Cloreto (Quimiorrecepção) / Tecido Epitelial Cilíndrico Simples", 
+            explanation: "A Mácula Densa monitora o fluxo tubular; suas células tornam-se cilíndricas e apinhadas em adaptação a essa função quimiossensora." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.35 (3).jpeg", 
+            text: "O parênquima exibe várias estruturas esféricas (corpúsculos) intercaladas com ductos cortados transversalmente. Qual é este órgão de forma global? Especifique o tecido dos túbulos ao redor.", 
+            options: ["Rim (Região Cortical) / Tecido Epitelial Cúbico Simples", "Baço (Polpa Branca) / Tecido Conjuntivo Reticular", "Ovário (Córtex) / Tecido Epitelial Pavimentoso Simples", "Testículo (Túbulos Seminíferos) / Tecido Epitelial Estratificado Germinativo"], 
+            correct: "Rim (Região Cortical) / Tecido Epitelial Cúbico Simples", 
+            explanation: "A presença dos corpúsculos renais diagnostica imediatamente o córtex do rim. O tecido adjacente pertence aos túbulos contorcidos (epitélio cúbico simples)." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.35 (2).jpeg", 
+            text: "A lâmina apresenta uma nítida separação morfológica (indicada pelas linhas azul e amarela). Em qual órgão ocorre a separação entre uma zona de filtração corpuncular e uma zona de concentração ductal? Especifique o tecido formador dos túbulos coletores.", 
+            options: ["Rim / Tecido Epitelial Cúbico a Cilíndrico Simples", "Suprarrenal / Tecido Epitelial Glandular Endócrino Cordonal", "Cérebro / Tecido Nervoso (Massa Cinzenta e Branca)", "Linfonodo / Tecido Conjuntivo Reticular"], 
+            correct: "Rim / Tecido Epitelial Cúbico a Cilíndrico Simples", 
+            explanation: "A transição corticomedular do rim abriga túbulos coletores que aumentam gradativamente a altura do seu epitélio simples (de cúbico para cilíndrico) conforme descem para a papila." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.35 (1).jpeg", 
+            text: "Seta aponta para células cilíndricas basais altas que repousam na membrana basal do túbulo seminífero, possuindo núcleo irregular. Qual célula é esta? Especifique o tipo de tecido geral deste epitélio.", 
+            options: ["Célula de Sertoli / Tecido Epitelial Estratificado Germinativo", "Espermatogônia / Tecido Epitelial Pseudoestratificado", "Célula de Leydig / Tecido Conjuntivo Frouxo", "Miofibroblasto / Tecido Muscular Liso"], 
+            correct: "Célula de Sertoli / Tecido Epitelial Estratificado Germinativo", 
+            explanation: "As células de Sertoli são os 'pilares' estruturais e nutricionais do tecido epitelial estratificado especial (germinativo) do testículo." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.35.jpeg", 
+            text: "O arranjo altamente celular mescla núcleos com citoplasmas róseos (acidófilos) e roxos (basófilos) intimamente dispostos entre vasos fenestrados. Qual é este órgão? Especifique seu tecido.", 
+            options: ["Adeno-hipófise (Pars Distalis) / Tecido Epitelial Glandular Endócrino Cordonal", "Neuro-hipófise / Tecido Nervoso Secretor", "Córtex da Adrenal / Tecido Epitelial Glandular Fasciculado", "Glândula Pineal / Tecido Nervoso Modificado"], 
+            correct: "Adeno-hipófise (Pars Distalis) / Tecido Epitelial Glandular Endócrino Cordonal", 
+            explanation: "A rica cromofilia celular (acidófilas/basófilas) disposta em cordões é a marca registrada da Adeno-hipófise." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.36 (4).jpeg", 
+            text: "A imagem ilustra um epitélio estratificado onde as células mais apicais são grandes e arredondadas (guarda-chuvas) recobrindo ductos urinários. Qual é a principal função deste epitélio? Especifique o tipo de tecido.", 
+            options: ["Impermeabilização e proteção contra a toxicidade da urina e distensão / Tecido Epitelial de Transição (Urotélio)", "Reabsorção intensa de Sódio e Água / Tecido Epitelial Cúbico Simples", "Condução de fluidos sem estiramento / Tecido Epitelial Cilíndrico Estratificado", "Fricção mecânica / Tecido Epitelial Estratificado Pavimentoso Queratinizado"], 
+            correct: "Impermeabilização e proteção contra a toxicidade da urina e distensão / Tecido Epitelial de Transição (Urotélio)", 
+            explanation: "O Urotélio é altamente especializado para impedir o retorno da urina tóxica para o plasma e se achatar quando a via urinária enche." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.36 (3).jpeg", 
+            text: "Os ductos transversais (números 4 e 5) mostram células com largura e altura quase idênticas e núcleos perfeitamente esféricos centrais. Qual é este órgão? Especifique a tipologia do tecido.", 
+            options: ["Rim / Tecido Epitelial Cúbico Simples", "Fígado / Tecido Epitelial Cilíndrico Simples", "Pâncreas / Tecido Epitelial Pavimentoso Simples", "Tireoide / Tecido Conjuntivo Frouxo"], 
+            correct: "Rim / Tecido Epitelial Cúbico Simples", 
+            explanation: "Pela presença de túbulos coletores menores do rim, onde a morfologia clássica do epitélio cúbico simples fica impecavelmente demonstrada." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.36 (2).jpeg", 
+            text: "Uma imensa massa acelular eosinofílica repousa sobre as células epiteliais. Este aspecto é encontrado nas palmas das mãos e solas dos pés. Qual é este órgão anatômico global? Especifique o tipo do tecido epitelial.", 
+            options: ["Pele Espessa (Glabra) / Tecido Epitelial Estratificado Pavimentoso Queratinizado", "Língua / Tecido Epitelial Estratificado Pavimentoso Não-Queratinizado", "Esôfago / Tecido Epitelial Pseudoestratificado Cilíndrico", "Unha / Tecido Conjuntivo Denso Modelado"], 
+            correct: "Pele Espessa (Glabra) / Tecido Epitelial Estratificado Pavimentoso Queratinizado", 
+            explanation: "O gigantesco estrato córneo e a epiderme viável multilaminar caracterizam o sistema tegumentar em áreas de fricção constante." 
+        },
 
-        // LOTE 5 (9 imagens)
-        { image: "WhatsApp Image 2026-06-21 at 14.48.40 (2).jpeg", text: "Cordões de células principais (basofílicas) e oxífilas (acidófilas). Glândula e função:", options: ["Paratireoide / Regulação do cálcio (PTH)", "Tireoide / Produção de T3 e T4", "Pineal / Melatonina", "Adrenal / Cortisol"], correct: "Paratireoide / Regulação do cálcio (PTH)", explanation: "O PTH retira cálcio dos ossos para o sangue." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.40 (1).jpeg", text: "Folículos com coloide. Qual o epitélio de revestimento em repouso metabólico?", options: ["Epitélio cúbico simples", "Epitélio pavimentoso estratificado", "Epitélio cilíndrico", "Epitélio de transição"], correct: "Epitélio cúbico simples", explanation: "Células foliculares da tireoide adaptam sua altura ao metabolismo." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.40.jpeg", text: "Zona intermediária e mais espessa do córtex suprarrenal (Zona Fasciculada) produz:", options: ["Glicocorticoides (ex: Cortisol)", "Mineralocorticoides (ex: Aldosterona)", "Catecolaminas", "Andrógenos"], correct: "Glicocorticoides (ex: Cortisol)", explanation: "As células formam fascículos (feixes retos)." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.41 (5).jpeg", text: "Camada mais superficial (6) da mucosa do palato duro (estratificado pavimentoso queratinizado):", options: ["Camada Córnea", "Camada Granulosa", "Camada Espinhosa", "Camada Basal"], correct: "Camada Córnea", explanation: "Anucleada e queratinizada para proteção mastigatória." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.41 (4).jpeg", text: "Estrutura esférica vascularizada responsável pela ultrafiltração do plasma:", options: ["Corpúsculo Renal (de Malpighi)", "Mácula Densa", "Túbulo Proximal", "Alça de Henle"], correct: "Corpúsculo Renal (de Malpighi)", explanation: "Unidade primária de filtração do néfron." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.41 (3).jpeg", text: "Projeções do epitélio da pele em direção ao tecido conjuntivo subjacente:", options: ["Cristas Epidérmicas", "Papilas Dérmicas", "Glândulas Sudoríparas", "Camada Reticular"], correct: "Cristas Epidérmicas", explanation: "Interdigitam-se com as papilas dérmicas para ancoragem física." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.41 (2).jpeg", text: "Receptor de pressão com aspecto de 'cebola cortada' na derme profunda:", options: ["Corpúsculo de Vater-Pacini", "Corpúsculo de Meissner", "Célula de Merkel", "Terminação livre"], correct: "Corpúsculo de Vater-Pacini", explanation: "Lamelas concêntricas detectam vibração rápida e pressão." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.41 (1).jpeg", text: "Células da pars distalis com citoplasma de forte afinidade pela eosina (róseo). Nome e hormônio:", options: ["Células acidófilas / Hormônio do Crescimento (GH)", "Células basófilas / ACTH", "Células cromófobas / Prolactina", "Pituícitos / Ocitocina"], correct: "Células acidófilas / Hormônio do Crescimento (GH)", explanation: "Produzem os hormônios somatotrófico (GH) e lactotrófico (PRL)." },
-        { image: "WhatsApp Image 2026-06-21 at 14.48.41.jpeg", text: "Tufo vascular anastomosado dentro da cápsula de Bowman:", options: ["Glomérulo Renal", "Túbulo Proximal", "Mácula Densa", "Vasa Recta"], correct: "Glomérulo Renal", explanation: "Rede capilar fenestrada sob alta pressão para vazamento do plasma." },
+        // LOTE 3
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.32 (1).jpeg", 
+            text: "A imagem destaca grandes células piramidais eosinofílicas, ricas em mitocôndrias, que povoam a porção média das glândulas da mucosa digestiva. Qual célula é esta? Especifique o tipo de tecido onde ela atua.", 
+            options: ["Célula Parietal (Oxíntica) / Tecido Epitelial Glandular Exócrino", "Célula Principal (Zimogênica) / Tecido Epitelial Cilíndrico Simples", "Hepatócito / Tecido Epitelial Glandular Endócrino", "Célula Caliciforme / Tecido Epitelial Glandular Unicelular"], 
+            correct: "Célula Parietal (Oxíntica) / Tecido Epitelial Glandular Exócrino", 
+            explanation: "As células parietais gastam muita energia (mitocôndrias = acidofilia) para bombear HCl para o lúmen das glândulas exócrinas gástricas." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.33 (1).jpeg", 
+            text: "A mucosa se ergue em formato de longos dedos alongados em direção ao lúmen. Qual é a principal função desta estrutura morfológica? Especifique o tecido conjuntivo que preenche o seu interior (eixo).", 
+            options: ["Aumentar a área de absorção de nutrientes / Tecido Conjuntivo Frouxo", "Produzir muco para o bolo fecal / Tecido Conjuntivo Denso", "Permitir a distensão elástica / Tecido Muscular Liso", "Realizar a hematose / Tecido Conjuntivo Reticular"], 
+            correct: "Aumentar a área de absorção de nutrientes / Tecido Conjuntivo Frouxo", 
+            explanation: "As vilosidades intestinais possuem um núcleo de tecido conjuntivo frouxo (lâmina própria) rico em capilares e quilíferos centrais para levar a nutrição absorvida para o sangue." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.36 (1).jpeg", 
+            text: "As setas verdes indicam estriações formadas por ductos retos invadindo perpendicularmente o córtex renal a partir da medula. Qual é este órgão anatômico? Especifique o tecido desses túbulos.", 
+            options: ["Rim / Tecido Epitelial Cúbico a Cilíndrico Simples", "Fígado / Tecido Epitelial Glandular Cordonal", "Cérebro / Tecido Nervoso com feixes axonais", "Timo / Tecido Conjuntivo Reticular"], 
+            correct: "Rim / Tecido Epitelial Cúbico a Cilíndrico Simples", 
+            explanation: "Os raios medulares de Ferrein são arranjos do parênquima renal que transportam a urina inicialmente processada no córtex em direção às pirâmides medulares." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.36.jpeg", 
+            text: "A linha limite do parênquima renal demonstra uma espessa bainha fibrosa que não possui função secretora ou filtrante. Qual é a principal função desta estrutura? Especifique o seu tipo de tecido.", 
+            options: ["Proteção e suporte estrutural do órgão (Cápsula Renal) / Tecido Conjuntivo Denso Não Modelado", "Secreção de aldosterona / Tecido Epitelial Glandular Endócrino", "Contração e expulsão de fluidos / Tecido Muscular Liso", "Fixação do rim à parede abdominal / Tecido Adiposo Unilocular"], 
+            correct: "Proteção e suporte estrutural do órgão (Cápsula Renal) / Tecido Conjuntivo Denso Não Modelado", 
+            explanation: "A cápsula de tecido conjuntivo denso do rim suporta altas pressões internas e blinda o órgão contra patógenos externos." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.37.jpeg", 
+            text: "Células grandes e poliédricas (com citoplasma rosa) estão alojadas no espaço extracelular entre túbulos que produzem gametas. Qual célula é esta? Especifique o tecido que preenche este espaço intersticial.", 
+            options: ["Célula de Leydig (Intersticial) / Tecido Conjuntivo Frouxo", "Célula de Sertoli / Tecido Epitelial Estratificado", "Espermatogônia / Tecido Conjuntivo Denso", "Miofibroblasto / Tecido Muscular Liso"], 
+            correct: "Célula de Leydig (Intersticial) / Tecido Conjuntivo Frouxo", 
+            explanation: "As Células de Leydig localizam-se no tecido conjuntivo frouxo rico em capilares sanguíneos (para onde a testosterona é secretada) entre os túbulos seminíferos." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.37 (4).jpeg", 
+            text: "A seta verde aponta a maior célula do epitélio seminífero, parada na meiose I, possuindo um grande núcleo arredondado e cromatina visível. Qual célula é esta? Especifique o tecido onde ocorre este processo.", 
+            options: ["Espermatócito Primário / Tecido Epitelial Estratificado Germinativo", "Espermatozoide / Tecido Epitelial Pseudoestratificado", "Célula Mioide / Tecido Muscular Liso", "Macrófago / Tecido Conjuntivo Frouxo"], 
+            correct: "Espermatócito Primário / Tecido Epitelial Estratificado Germinativo", 
+            explanation: "O epitélio germinativo do testículo apresenta os espermatócitos primários numa longa fase de prófase, tornando-os altamente conspícuos na histologia." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.38 (4).jpeg", 
+            text: "A seta azul descreve uma delicada parede de camada única que delimita uma cavidade em meia-lua ao redor do glomérulo. Qual é a principal função desse folheto parietal? Especifique o tipo de tecido.", 
+            options: ["Reter e direcionar o ultrafiltrado (urina primária) para o polo tubular / Tecido Epitelial Pavimentoso Simples", "Filtrar os capilares sanguíneos / Tecido Epitelial Cúbico Simples", "Reabsorver glicose e proteínas / Tecido Epitelial Cilíndrico com Microvilosidades", "Aumentar a pressão sanguínea sistêmica / Tecido Muscular Liso"], 
+            correct: "Reter e direcionar o ultrafiltrado (urina primária) para o polo tubular / Tecido Epitelial Pavimentoso Simples", 
+            explanation: "A fina cápsula parietal não filtra ativamente; ela atua como um invólucro impermeável de tecido pavimentoso que captura a água vazada dos capilares." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.38 (5).jpeg", 
+            text: "No meio da fenda residual da glândula pituitária, observam-se bolsões (cistos de Rathke) revestidos por células residuais cheios de fluido coloide. Qual é este órgão? Especifique o tecido formador dessa região intermediária.", 
+            options: ["Glândula Hipófise (Pars Intermedia) / Tecido Epitelial Glandular Cúbico a Cilíndrico Simples", "Tireoide / Tecido Epitelial Pavimentoso Estratificado", "Pâncreas Endócrino / Tecido Conjuntivo Mucoso", "Suprarrenal (Medula) / Tecido Nervoso Modificado"], 
+            correct: "Glândula Hipófise (Pars Intermedia) / Tecido Epitelial Glandular Cúbico a Cilíndrico Simples", 
+            explanation: "Os cistos de Rathke marcam a parte intermédia da hipófise, sendo circundados por resquícios epiteliais da bolsa embriológica oral." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.38 (3).jpeg", 
+            text: "Visualização panorâmica em que a parte celular e corada à direita contrasta diretamente com a porção pálida e fibrilar à esquerda. Qual é este órgão completo? Especifique os tecidos de ambas as porções (direita e esquerda).", 
+            options: ["Glândula Hipófise / Tecido Epitelial Glandular Endócrino (D) e Tecido Nervoso (E)", "Rim / Tecido Epitelial Cúbico (D) e Tecido Conjuntivo (E)", "Testículo / Tecido Epitelial Germinativo (D) e Tecido Muscular (E)", "Tireoide / Tecido Glandular Folicular (D) e Tecido Adiposo (E)"], 
+            correct: "Glândula Hipófise / Tecido Epitelial Glandular Endócrino (D) e Tecido Nervoso (E)", 
+            explanation: "A adeno-hipófise (epitelial) e a neuro-hipófise (nervosa) fundem-se na glândula pituitária, criando um choque histológico de tecidos inconfundível." 
+        },
 
-        // LOTE 6 (10 imagens focadas em Estrutura / Orgão / Função - Bloco 19.53.xx)
-        { image: "WhatsApp Image 2026-06-21 at 19.53.32.jpeg", text: "Identifique a estrutura destacada, o órgão e a sua principal função.", options: ["Papilas filiformes / Língua / Fricção mecânica (sem corpúsculos gustativos)", "Vilosidades / Intestino / Absorção", "Pregas gástricas / Estômago / Digestão", "Papilas fungiformes / Língua / Paladar"], correct: "Papilas filiformes / Língua / Fricção mecânica (sem corpúsculos gustativos)", explanation: "Pontiagudas, queratinizadas e funcionam apenas como 'lixas' na língua." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.32 (1).jpeg", text: "Células eosinofílicas volumosas em glândulas. Identifique a estrutura, o órgão e a função.", options: ["Células parietais / Estômago / Secreção de HCl e fator intrínseco", "Células principais / Estômago / Secreção de pepsinogênio", "Células caliciformes / Intestino / Secreção de muco", "Células de Paneth / Duodeno / Enzimas antibacterianas"], correct: "Células parietais / Estômago / Secreção de HCl e fator intrínseco", explanation: "Fundamentais para acidificar o lúmen e absorver Vitamina B12." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.32 (2).jpeg", text: "Camada superficial extremamente espessa e acelular. Identifique a estrutura, o local e a função.", options: ["Estrato córneo espesso / Pele espessa (palmo-plantar) / Proteção mecânica intensa contra atrito", "Urotélio / Bexiga / Distensão e impermeabilidade", "Mucosa mastigatória / Palato / Facilitação da fala", "Mucosa / Esôfago / Lubrificação"], correct: "Estrato córneo espesso / Pele espessa (palmo-plantar) / Proteção mecânica intensa contra atrito", explanation: "Queratina morta absorve o choque na sola do pé e palma das mãos." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.32 (3).jpeg", text: "Células claras e cilíndricas intercaladas. Estruturas, órgão e função do epitélio:", options: ["Células caliciformes e enterócitos / Intestino delgado / Absorção de nutrientes e lubrificação", "Células parietais e principais / Estômago / Digestão química", "Células ciliadas e basais / Traqueia / Limpeza do trato", "Células claras e escuras / Ducto coletor / Equilíbrio ácido-base"], correct: "Células caliciformes e enterócitos / Intestino delgado / Absorção de nutrientes e lubrificação", explanation: "Parceria perfeita: Enterócitos absorvem, Caliciformes lubrificam." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.33.jpeg", text: "Aglomeração basofílica na parede. Estrutura, órgão/sistema e função:", options: ["Nódulo Linfoide (MALT) / Trato Gastrointestinal / Defesa imunológica local e vigilância", "Glândula de Brünner / Trato Gastrointestinal / Secreção alcalina", "Ilhota de Langerhans / Endócrino / Regulação glicêmica", "Corpúsculo de Malpighi / Urinário / Filtração"], correct: "Nódulo Linfoide (MALT) / Trato Gastrointestinal / Defesa imunológica local e vigilância", explanation: "Linfócitos estocados próximos às barreiras de contato antigênico." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.33 (1).jpeg", text: "Tríade portal (seta vermelha indica vaso de lúmen menor e muscular). Estrutura, órgão, função:", options: ["Ramo da Artéria Hepática / Fígado / Fornecer sangue arterial oxigenado", "Ducto Biliar / Fígado / Drenar a bile", "Ramo da Veia Porta / Fígado / Traz nutrientes do intestino", "Capilar Sinusoide / Fígado / Mistura de sangue"], correct: "Ramo da Artéria Hepática / Fígado / Fornecer sangue arterial oxigenado", explanation: "Garante a oxigenação celular do hepatócito." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.33 (2).jpeg", text: "Mucosa com glândulas retas e sem vilosidades. Estrutura destacada, órgão, função:", options: ["Criptas de Lieberkühn profundas / Intestino Grosso (Cólon) / Absorção de água e lubrificação fecal", "Vilosidades curtas / Intestino Delgado / Absorção de B12", "Fovéolas gástricas / Estômago / Suco gástrico", "Pseudovilosidades / Vesícula Biliar / Concentração biliar"], correct: "Criptas de Lieberkühn profundas / Intestino Grosso (Cólon) / Absorção de água e lubrificação fecal", explanation: "Sem vilosidades, muitas caliciformes para lubrificar as fezes endurecendo." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.33 (3).jpeg", text: "Espaços entre cordões celulares. Estrutura, órgão, função:", options: ["Capilares sinusoides / Fígado / Permuta lenta e extensa com hepatócitos", "Vasa recta / Rim / Concentração osmótica", "Capilares contínuos / Baço / Filtração", "Capilares fenestrados / Pâncreas / Captação hormonal"], correct: "Capilares sinusoides / Fígado / Permuta lenta e extensa com hepatócitos", explanation: "Seu trajeto tortuoso e endotélio fenestrado desaceleram o sangue para limpeza e troca." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.33 (4).jpeg", text: "Projeções alongadas em direção ao lúmen. Estrutura, órgão, função:", options: ["Vilosidades / Intestino Delgado / Ampliação extrema da superfície para maximizar absorção", "Criptas retas / Intestino Grosso / Produção de muco", "Fovéolas / Estômago / Secreção de ácido", "Alvéolos / Pulmão / Hematose"], correct: "Vilosidades / Intestino Delgado / Ampliação extrema da superfície para maximizar absorção", explanation: "Adaptação brutal de área de contato microscópica para os nutrientes." },
-        { image: "WhatsApp Image 2026-06-21 at 19.53.33 (5).jpeg", text: "Estruturas poligonais delimitadas. Unidade, órgão e função:", options: ["Lóbulo Hepático Clássico / Fígado / Metabolismo e fluxo centrípeto sanguíneo / centrífugo biliar", "Lóbulo Pancreático / Pâncreas / Secreção exócrina e endócrina", "Corpúsculo Renal / Rim / Filtração", "Lóbulo Tímico / Timo / Maturação de células T"], correct: "Lóbulo Hepático Clássico / Fígado / Metabolismo e fluxo centrípeto sanguíneo / centrífugo biliar", explanation: "Hexágono clássico que define as fronteiras de processamento bioquímico do sangue que chega da porta/artéria." },
+        // LOTE 4
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.38 (1).jpeg", 
+            text: "A imagem mostra o lúmen de um longo ducto ladeado por células com imensas projeções imóveis (estereocílios) agrupadas, circundado por uma forte bainha muscular. Qual é a principal função desta estrutura? Especifique o tecido epitelial.", 
+            options: ["Absorver os fluidos testiculares e nutrir os espermatozoides durante a maturação / Tecido Epitelial Pseudoestratificado Cilíndrico", "Impelir o espermatozoide em direção à uretra / Tecido Epitelial de Transição", "Produzir frutose para o sêmen / Tecido Epitelial Cúbico Simples", "Realizar fagocitose celular / Tecido Epitelial Pavimentoso Estratificado"], 
+            correct: "Absorver os fluidos testiculares e nutrir os espermatozoides durante a maturação / Tecido Epitelial Pseudoestratificado Cilíndrico", 
+            explanation: "No epidídimo, os estereocílios (vilosidades ramificadas longas e imóveis) maximizam a área para secar o fluido testicular, e o epitélio pseudoestratificado auxilia no suporte e maturação." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.38.jpeg", 
+            text: "Incontáveis perfis tubulares tortuosos empacotados, com grande concentração intraluminal de espermatozoides visíveis. Qual é este órgão? Especifique o tecido intertubular que o preenche.", 
+            options: ["Epidídimo / Tecido Conjuntivo Frouxo e Tecido Muscular Liso peritubular", "Ducto Deferente / Tecido Cartilaginoso Hialino", "Próstata / Tecido Conjuntivo Denso Modelado", "Túbulo Seminífero / Tecido Ósseo Esponjoso"], 
+            correct: "Epidídimo / Tecido Conjuntivo Frouxo e Tecido Muscular Liso peritubular", 
+            explanation: "Como o ducto epididimário tem metros de comprimento enovelados, um único corte fatia-o dezenas de vezes, sustentado por conjuntivo e circundado por musculatura lisa contrátil." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.39 (5).jpeg", 
+            text: "Corte encefálico profundo exibindo massas calcificadas amorfas (corpos arenáceos) num estroma com pouca densidade celular clássica. Qual é este órgão? Especifique a natureza do tecido base.", 
+            options: ["Glândula Pineal (Epífise) / Tecido Nervoso Modificado (Neuroendócrino)", "Adeno-hipófise / Tecido Epitelial Glandular Endócrino", "Paratireoide / Tecido Conjuntivo Mucoso", "Tireoide / Tecido Epitelial Glandular Folicular"], 
+            correct: "Glândula Pineal (Epífise) / Tecido Nervoso Modificado (Neuroendócrino)", 
+            explanation: "A areia cerebral (concreções de fosfato e carbonato de cálcio) precipita entre os pinealócitos neuroendócrinos derivados do diencéfalo." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.39 (4).jpeg", 
+            text: "Aspecto neurofibrilar desorganizado, salpicado por manchas granulosas basofílicas nas terminações axonais (Corpúsculos de Herring). Qual é a principal função deste órgão? Especifique o tecido.", 
+            options: ["Armazenar (não produzir) e liberar neuro-hormônios diretos no sangue / Tecido Nervoso Secetor", "Sintetizar hormônios tireotróficos / Tecido Epitelial Endócrino Cordonal", "Transmitir impulsos elétricos reflexos periféricos / Tecido Nervoso Somático", "Manter a barreira hematoencefálica ocluída / Tecido Conjuntivo Reticular"], 
+            correct: "Armazenar (não produzir) e liberar neuro-hormônios diretos no sangue / Tecido Nervoso Secetor", 
+            explanation: "A pars nervosa hipofisária é formada pelos axônios distais do hipotálamo, que guardam grânulos de ADH/Ocitocina envoltos pela glia local (pituícitos)." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.39 (3).jpeg", 
+            text: "Aglutinados epiteliais demonstram intensa variação de cores (células coradas em rosa, roxo e transparentes). Qual célula forma a população 'Cromófoba' pálida? Especifique o órgão.", 
+            options: ["Células em estado de repouso ou degranuladas que não fixam corante / Glândula Adeno-hipófise", "Células secretoras de mucina ativa / Glândula Submandibular", "Células neuroendócrinas amielínicas / Glândula Pineal", "Células de sustentação basais / Bulbo Olfatório"], 
+            correct: "Células em estado de repouso ou degranuladas que não fixam corante / Glândula Adeno-hipófise", 
+            explanation: "As cromófobas ('que têm aversão à cor') são células tronco ou células hipofisárias que acabaram de esvaziar todo o seu conteúdo hormonal acidófilo/basófilo." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.39 (2).jpeg", 
+            text: "A linha cística contendo coloide delimita abruptamente as partes glandular maciça e fibrilar neurogênica. Qual é este órgão complexo? Especifique o tipo de tecido da parte maciça celular (à direita).", 
+            options: ["Glândula Pituitária (Hipófise) / Tecido Epitelial Glandular Endócrino Cordonal", "Adrenal (Suprarrenal) / Tecido Epitelial Glandular Fasciculado", "Ovário Folicular / Tecido Epitelial Cúbico Simples", "Tireoide/Paratireoide / Tecido Conjuntivo Denso Modelado"], 
+            correct: "Glândula Pituitária (Hipófise) / Tecido Epitelial Glandular Endócrino Cordonal", 
+            explanation: "A visão tripla (Pars Distalis Endócrina - Pars Intermedia Cística - Pars Nervosa Glial) confere à Hipófise essa histologia única." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.39 (1).jpeg", 
+            text: "Fendas preenchidas por coloide formam as vesículas em foco, originárias da invaginação do teto da boca primitiva no feto. Qual é a estrutura nomeada destas vesículas? Especifique o tecido de revestimento interno.", 
+            options: ["Cistos de Rathke / Tecido Epitelial Cúbico a Cilíndrico Baixo Simples", "Folículos da Tireoide / Tecido Epitelial Pavimentoso Estratificado", "Corpúsculos de Hassall / Tecido Epitelial Reticular", "Alvéolos Pulmonares / Tecido Epitelial Pavimentoso Simples"], 
+            correct: "Cistos de Rathke / Tecido Epitelial Cúbico a Cilíndrico Baixo Simples", 
+            explanation: "Essas vesículas revestidas de epitélio simples e ladeadas por basófilas residuais definem os Cistos de Rathke da porção intermédia da hipófise." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.39.jpeg", 
+            text: "Seta focando no espaço extracelular fora da parede de um túbulo e mirando células globosas arranjadas em nichos capilares. Qual é a principal função destas células intersticiais (de Leydig)? Especifique o tecido de suporte.", 
+            options: ["Sintetizar hormônios andrógenos sob ação do LH / Tecido Conjuntivo Frouxo", "Englobar as espermatogônias e formar a barreira sangue-testículo / Tecido Epitelial Estratificado", "Contrair a parede tubular espasmodicamente / Tecido Muscular Estriado Esquelético", "Fagocitar resíduos da meiose / Tecido Conjuntivo Denso Não Modelado"], 
+            correct: "Sintetizar hormônios andrógenos sob ação do LH / Tecido Conjuntivo Frouxo", 
+            explanation: "O conjuntivo frouxo preenche o interstício, permitindo rica vascularização que recolhe a testosterona secretada diretamente pelas Células de Leydig." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.40 (4).jpeg", 
+            text: "O ponteiro demarca uma placa hipercelular no túbulo que toca o hilo vascular do glomérulo. Qual é esta estrutura anatômica sensora? Especifique o tipo de tecido em que se diferencia.", 
+            options: ["Mácula Densa / Tecido Epitelial Cilíndrico Simples Especializado", "Folheto Parietal / Tecido Epitelial Pavimentoso Simples", "Podócitos / Tecido Epitelial de Revestimento Modificado", "Células Mesangiais Extraglomerulares / Tecido Conjuntivo Reticular"], 
+            correct: "Mácula Densa / Tecido Epitelial Cilíndrico Simples Especializado", 
+            explanation: "As células do túbulo distal ficam tão altas e finas no ponto de contato vascular que seus núcleos formam uma 'mácula densa' visível encarregada de provar a osmolaridade." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.40 (3).jpeg", 
+            text: "As setas apontam para canais brancos irregulares e extremamente fenestrados fluindo radialmente na placa hepática. Qual é este vaso? Especifique o tecido das suas paredes.", 
+            options: ["Capilar Sinusoide / Tecido Epitelial Pavimentoso Simples Endotelial (Descontínuo)", "Veia Central / Tecido Muscular Liso e Endotélio Contínuo", "Canalículo Biliar / Tecido Epitelial Cúbico Simples", "Artéria de Distribuição / Tecido Muscular Estriado e Conjuntivo elástico"], 
+            correct: "Capilar Sinusoide / Tecido Epitelial Pavimentoso Simples Endotelial (Descontínuo)", 
+            explanation: "O fluxo sanguíneo misto flui por esses labirintos lentos (sinusoides), nos quais grandes fenestras epiteliais viabilizam o toque direto das macromoléculas com os hepatócitos." 
+        },
 
-        // LOTE 7 (10 Imagens Focadas - Bloco 20.13.xx)
-        { image: "WhatsApp Image 2026-06-21 at 20.13.56.jpeg", text: "A imagem em destaque aponta para estruturas tubulares (setas) em meio ao córtex. Identifique a estrutura principal, o órgão e a função associada.", options: ["Túbulo Contorcido Proximal / Rim / Reabsorção obrigatória de água e nutrientes", "Túbulo Coletor / Rim / Concentração de urina pela ADH", "Ducto Excretor / Glândula Sudorípara / Excreção de suor", "Alça de Henle / Rim / Multiplicação por contracorrente"], correct: "Túbulo Contorcido Proximal / Rim / Reabsorção obrigatória de água e nutrientes", explanation: "Túbulos muito eosinofílicos e com borda em escova (microvilosidades), localizados no córtex, são os proximais, responsáveis por reabsorver quase 100% da glicose/aminoácidos." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.55 (3).jpeg", text: "O corte foca no epitélio seminífero. Identifique a célula destacada superiormente e a função dela no órgão.", options: ["Célula de Sertoli (Testículo) / Sustentação, nutrição e formação da barreira hemato-testicular", "Célula Mioide (Testículo) / Contração para expelir o fluido", "Espermatogônia (Testículo) / Mitose e renovação celular", "Espermatócito Primário (Testículo) / Crossing-over genético"], correct: "Célula de Sertoli (Testículo) / Sustentação, nutrição e formação da barreira hemato-testicular", explanation: "Essas células colunares altas protegem a linhagem espermatogênica de ataques do próprio sistema imune masculino." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.55 (2).jpeg", text: "Cordões celulares ricamente vascularizados com diferentes afinidades tintoriais. Identifique a região, o órgão e a função geral.", options: ["Pars Distalis (Adeno-hipófise) / Hipófise / Produção e secreção de hormônios tróficos", "Pars Nervosa (Neuro-hipófise) / Hipófise / Liberação de ADH e Ocitocina", "Zona Reticular / Suprarrenal / Produção de Andrógenos", "Paratireoide / Glândula / Controle do metabolismo do Cálcio"], correct: "Pars Distalis (Adeno-hipófise) / Hipófise / Produção e secreção de hormônios tróficos", explanation: "A diversidade de células acidófilas, basófilas e cromófobas caracteriza a fábrica hormonal da adeno-hipófise." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.55 (1).jpeg", text: "A estrutura circular mais pálida no centro do parênquima glandular. Identifique a estrutura, o órgão e a função.", options: ["Ilhota de Langerhans / Pâncreas / Porção endócrina responsável pela regulação da glicemia", "Glomérulo / Rim / Porção filtrante", "Folículo Primordial / Ovário / Reserva Ovariana", "Nódulo Linfoide / Baço / Filtração linfática"], correct: "Ilhota de Langerhans / Pâncreas / Porção endócrina responsável pela regulação da glicemia", explanation: "Formada por células Alfa, Beta e Delta, regula inteiramente a insulina e o glucagon no sangue." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.55.jpeg", text: "A imagem destaca células claras no centro dos ácinos serosos. Identifique as células, o órgão e sua função principal.", options: ["Células Centroacinares / Pâncreas / Início do sistema ductal e secreção de fluido rico em bicarbonato", "Células de Paneth / Duodeno / Defesa Imune", "Células Parietais / Estômago / Acidez", "Células C parafoliculares / Tireoide / Calcitonina"], correct: "Células Centroacinares / Pâncreas / Início do sistema ductal e secreção de fluido rico em bicarbonato", explanation: "São células ductais invaginadas únicas da estrutura exócrina pancreática que neutralizam o ácido estomacal." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.54 (3).jpeg", text: "As setas indicam o espaço e os folhetos ao redor do tufo vascular. Identifique a estrutura global, o órgão e a função fundamental.", options: ["Corpúsculo Renal / Rim / Ultrafiltração inicial do plasma sanguíneo", "Folículo de Graaf / Ovário / Maturação oocitária", "Ácino Pancreático / Pâncreas / Digestão química", "Glomo Carotídeo / Vasos / Quimiorrecepção"], correct: "Corpúsculo Renal / Rim / Ultrafiltração inicial do plasma sanguíneo", explanation: "Onde o sangue penetra a alta pressão para a extração primária de urina nas cápsulas de Bowman." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.54 (2).jpeg", text: "A imagem evidencia a transição entre duas zonas distintas (linhas azul e amarela). Identifique as zonas (estrutura), o órgão e a função local.", options: ["Córtex e Medula Renal / Rim / Filtração (córtex) e regulação osmótica/concentração (medula)", "Mucosa e Submucosa / Estômago / Absorção e sustentação", "Polpa Branca e Vermelha / Baço / Imunidade e hemocaterese", "Epiderme e Derme / Pele / Barreira e nutrição"], correct: "Córtex e Medula Renal / Rim / Filtração (córtex) e regulação osmótica/concentração (medula)", explanation: "O córtex detém os filtros (corpúsculos), e a medula as longas tubulações para secar a urina." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.54 (1).jpeg", text: "Observam-se cavidades císticas contendo coloide em uma área limítrofe. Identifique a estrutura, o órgão e a origem biológica associada.", options: ["Cistos de Rathke (Pars Intermedia) / Hipófise / Resquício do ectoderma oral embrionário", "Folículos / Tireoide / Estocagem de tiroglobulina", "Gânglios císticos / Sistema Nervoso / Produção de LCR", "Corpos Albicans / Ovário / Cicatrizes ovulatórias"], correct: "Cistos de Rathke (Pars Intermedia) / Hipófise / Resquício do ectoderma oral embrionário", explanation: "Marcam exatamente a fronteira do choque tecidual ocorrido no embrião entre a boca e o assoalho cerebral." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.54.jpeg", text: "A parede exibe mucosa preagueada (seta amarela), camada muscular e serosa (ausência de submucosa). Identifique as túnicas da estrutura, o órgão e a função.", options: ["Camadas Mucosa, Fibromuscular e Serosa / Vesícula Biliar / Armazenamento e concentração hidroeletrolítica da bile", "Túnicas Íntima, Média e Adventícia / Artéria Elástica / Condução sob pressão", "Mucosa, Submucosa e Muscular / Intestino / Peristaltismo forte", "Camadas da Parede / Bexiga Urinária / Distensão por urina"], correct: "Camadas Mucosa, Fibromuscular e Serosa / Vesícula Biliar / Armazenamento e concentração hidroeletrolítica da bile", explanation: "Sem submucosa e sem muscular da mucosa, a vesícula desidrata a bile para fortificá-la." },
-        { image: "WhatsApp Image 2026-06-21 at 20.13.53.jpeg", text: "As setas apontam para unidades secretoras esféricas intensamente basofílicas. Identifique a estrutura, o órgão e a função.", options: ["Ácinos Serosos / Pâncreas (Exócrino) / Síntese e secreção de enzimas digestivas em grânulos de zimogênio", "Ácinos Mucosos / Glândula Sublingual / Secreção fluida de proteção", "Folículos Linfoides / Linfonodo / Proliferação de linfócitos B", "Alvéolos Mamários / Glândula Mamária / Secreção láctea apócrina"], correct: "Ácinos Serosos / Pâncreas (Exócrino) / Síntese e secreção de enzimas digestivas em grânulos de zimogênio", explanation: "O forte caráter basofílico basal é devido ao abundante RER fabricando proteínas digestivas." }
+        // LOTE 5
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.40 (2).jpeg", 
+            text: "Ilha celular composta por dois tipos de células muito visíveis: as principais (pequenas e roxas) e as oxífilas (grandes e totalmente eosinófilas). Qual é a principal função fisiológica deste órgão? Especifique seu tecido.", 
+            options: ["Produzir Paratormônio (PTH) para aumentar o nível de cálcio sanguíneo / Tecido Epitelial Glandular Endócrino Cordonal", "Secreção de hormônios do metabolismo basal (T3 e T4) / Tecido Epitelial Glandular Folicular", "Produção de adrenalina para lutar ou fugir / Tecido Nervoso Modificado (Medula Adrenal)", "Produção de Enzimas digestivas serosas / Tecido Epitelial Glandular Exócrino Acinar"], 
+            correct: "Produzir Paratormônio (PTH) para aumentar o nível de cálcio sanguíneo / Tecido Epitelial Glandular Endócrino Cordonal", 
+            explanation: "Essas características duplas (Principais + Oxífilas) arranjadas em densos cordões diagnosticam de imediato a paratireoide, a maestra da calcemia do corpo." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.40 (1).jpeg", 
+            text: "Cavidades vesiculares esféricas e variadas margeadas por uma borda celular única e repletas de um gel denso homogêneo rosa. Qual é este órgão? Especifique o tecido que delimita esse fluido coloidal.", 
+            options: ["Glândula Tireoide / Tecido Epitelial Cúbico Simples (Folicular)", "Glândula Hipófise (Intermédia) / Tecido Epitelial Cilíndrico Estratificado", "Mama em lactação / Tecido Epitelial Cúbico Estratificado", "Vesícula Biliar / Tecido Epitelial Cilíndrico Simples com Microvilosidades"], 
+            correct: "Glândula Tireoide / Tecido Epitelial Cúbico Simples (Folicular)", 
+            explanation: "As células foliculares adotam o aspecto cúbico quando o ritmo metabólico tireoidiano está normofuncional, envolvendo a estocagem maciça de glicoproteínas (tiroglobulina)." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.40.jpeg", 
+            text: "A enorme faixa mediana destacada exibe células pálidas empilhadas como longas fitas lineares perpendiculares à cápsula. Qual é a principal função desta zona celular? Especifique o tecido base.", 
+            options: ["Secreção de Glicocorticoides induzida pelo ACTH hipofisário / Tecido Epitelial Glandular Endócrino Cordonal", "Produção de Mineralocorticoides autônoma pela renina / Tecido Epitelial Glandular Endócrino Glomerular", "Secreção intensa de Catecolaminas neurotrópicas / Tecido Nervoso Neuroendócrino", "Ativação parassimpática intestinal / Tecido Muscular Liso"], 
+            correct: "Secreção de Glicocorticoides induzida pelo ACTH hipofisário / Tecido Epitelial Glandular Endócrino Cordonal", 
+            explanation: "A Zona Fasciculada da glândula adrenal corresponde a 80% do córtex e empilha espongiócitos que fabricam intensamente cortisol anti-estresse sob comando superior." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.41 (5).jpeg", 
+            text: "Uma imponente barreira eosinofílica e anucleada forma a superfície apical do corte gengival/palatal (6). Qual é a principal função desta camada de revestimento? Especifique o tipo de tecido geral da mucosa.", 
+            options: ["Proteção contra forte atrito mastigatório local e invasão microbiana / Tecido Epitelial Estratificado Pavimentoso Queratinizado", "Filtração passiva de fluidos salivares / Tecido Epitelial Pseudoestratificado Cilíndrico Ciliado", "Percepção refinada de texturas e sabores químicos / Tecido Epitelial Estratificado Pavimentoso Não-Queratinizado", "Impermeabilidade a líquidos ácidos corrosivos / Tecido Epitelial de Transição Urotelial"], 
+            correct: "Proteção contra forte atrito mastigatório local e invasão microbiana / Tecido Epitelial Estratificado Pavimentoso Queratinizado", 
+            explanation: "A ortoqueratinização do palato duro assegura um epitélio pavimentoso altamente abrasivo e impermeável ao esmagamento rígido da comida contra o osso." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.41 (4).jpeg", 
+            text: "O ponteiro foca em formações redondas densas espalhadas num fundo tubular. Qual é este órgão inteiro? Especifique a natureza do tecido formando o tufo interior das esferas (Glomérulo).", 
+            options: ["Rim / Tecido Epitelial Pavimentoso Simples Fenestrado (Endotélio Capilar)", "Linfonodo / Tecido Conjuntivo Reticular e Linfócitos Nodulares", "Ovário / Tecido Epitelial Cúbico Simples a Estratificado (Granulosa)", "Baço / Tecido Epitelial Glandular Cordonal Vermelho"], 
+            correct: "Rim / Tecido Epitelial Pavimentoso Simples Fenestrado (Endotélio Capilar)", 
+            explanation: "Essas massas microscópicas renais revelam os glomérulos, cuja formatação é um ninho de capilares intensamente fenestrados permitindo o ultrafiltrado maciço sem perda de hemácias." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.41 (3).jpeg", 
+            text: "Pontiagudas e repetitivas invaginações se aprofundam na área rosa inferior. Qual é a principal função destas cristas epidérmicas descendentes? Especifique o tecido no qual elas mergulham.", 
+            options: ["Maximizar a adesão, superfície de troca e evitar forças de cisalhamento do tegumento / Tecido Conjuntivo Frouxo a Denso Não Modelado (Derme)", "Garantir a expulsão do suor apócrino das glândulas profundas / Tecido Conjuntivo Reticular", "Produzir queratina rígida para unhas e calos / Tecido Ósseo Compacto", "Permitir o escorregamento dos órgãos vizinhos nas fáscias / Tecido Adiposo Unilocular"], 
+            correct: "Maximizar a adesão, superfície de troca e evitar forças de cisalhamento do tegumento / Tecido Conjuntivo Frouxo a Denso Não Modelado (Derme)", 
+            explanation: "Sem as cristas epidérmicas cravadas nas papilas dérmicas conjuntivas, qualquer atrito severo arrancaria a epiderme em uma única placa descamativa." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.41 (2).jpeg", 
+            text: "Gigantescas lamelas fibrocelulares concêntricas mimetizando as folhas de uma cebola dissecada transversalmente. Qual é esta estrutura mecanorresceptora? Especifique o tecido das suas cápsulas lameladas externas.", 
+            options: ["Corpúsculo de Vater-Pacini / Tecido Conjuntivo Especializado com células fibroblásticas modificadas (Células de Schwann lamelares perineurais)", "Corpúsculo de Meissner / Tecido Epitelial Glandular Estratificado Pavimentoso", "Nódulo de Ranvier / Tecido Muscular Liso Fibrilar", "Glomo Aórtico / Tecido Nervoso Ependimário Multipolar"], 
+            correct: "Corpúsculo de Vater-Pacini / Tecido Conjuntivo Especializado com células fibroblásticas modificadas (Células de Schwann lamelares perineurais)", 
+            explanation: "O Pacini atua como micro-amortecedor líquido. As camadas conjuntivo-neurais deslocam-se microscopicamente ao toque profundo/rápido para disparar a fibra no núcleo interior." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.41 (1).jpeg", 
+            text: "Células secretoras da pars distalis evidenciando franca paixão pelo corante ácido rosa (eosina). Qual é a principal função metabólica promovida por um dos hormônios secretado por estas células (GH)? Especifique o tecido estrutural.", 
+            options: ["Estimular diretamente e indiretamente o anabolismo proteico, mitose e crescimento esquelético corporal / Tecido Epitelial Glandular Endócrino Cordonal", "Inibir a motilidade do músculo liso uterino no parto / Tecido Nervoso Autônomo Parassimpático", "Forçar as células tubulares a reter excesso de Sódio plasmático / Tecido Epitelial Glandular Folicular", "Desencadear a ovulação via pico de Luteinizante / Tecido Epitelial Cúbico Simples Granular"], 
+            correct: "Estimular diretamente e indiretamente o anabolismo proteico, mitose e crescimento esquelético corporal / Tecido Epitelial Glandular Endócrino Cordonal", 
+            explanation: "As células somatotróficas (acidófilas) expelem Hormônio do Crescimento para alavancar a cartilagem epifisária nos ossos e massa muscular na infância/adolescência via IGf-1 hepático." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 14.48.41.jpeg", 
+            text: "Foco total na rede enovelada altamente capilarizada e suportada internamente por mesângio no polo renal. Qual é este órgão filtrante completo? Especifique o complexo tecido que forma a fenda de filtração com o endotélio vascular (Folheto Visceral).", 
+            options: ["Rim / Tecido Epitelial Pavimentoso Modificado (Células Podocíticas com pedicelos)", "Tireoide / Tecido Epitelial Cúbico Simples com Cílios e Esterocílios Absorvíveis", "Pulmão / Tecido Epitelial Pavimentoso Simples Finíssimo Respiratório (Pneumócitos Tipo 1)", "Baço / Tecido Epitelial Reticular Misto Estelar (Células Dendríticas Folículares)"], 
+            correct: "Rim / Tecido Epitelial Pavimentoso Modificado (Células Podocíticas com pedicelos)", 
+            explanation: "Os glomérulos renais são revestidos visceralmente por podócitos. Eles se abraçam aos capilares deixando finas fendas teciduais pelas quais as proteínas plasmáticas são fisicamente impedidas de vazar para a urina." 
+        },
+
+        // LOTE 6 (Estrutura, Órgão, Função e Tecido - NOVAS EXCLUSIVAS)
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.32.jpeg", 
+            text: "Observando o corte histológico, responda: Qual é a função principal dessa estrutura pontiaguda? Além disso, especifique o tipo de tecido de revestimento.", 
+            options: ["Lixar o alimento (fricção mecânica) e movê-lo / Tecido Epitelial Estratificado Pavimentoso Queratinizado", "Sentir o sabor dos alimentos (gustação) / Tecido Epitelial Pseudoestratificado com botões", "Absorver os líquidos do bolo alimentar / Tecido Epitelial Cilíndrico Simples com Cílios", "Amortecer a dentição / Tecido Conjuntivo Denso Modelado"], 
+            correct: "Lixar o alimento (fricção mecânica) e movê-lo / Tecido Epitelial Estratificado Pavimentoso Queratinizado", 
+            explanation: "Ao contrário das outras papilas linguais, as filiformes são puramente anatômico-mecânicas. Sua forte queratinização garante abrasividade sem danos à língua." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.32 (1).jpeg", 
+            text: "Observando as células globosas e rosas (eosinofílicas) nas glândulas, responda: Qual célula é esta? Além disso, especifique o tipo de tecido onde se encontram.", 
+            options: ["Célula Parietal (Oxíntica) / Tecido Epitelial Glandular Exócrino (Glândulas Gástricas)", "Célula Caliciforme / Tecido Epitelial Glandular Unicelular Endócrino", "Hepatócito / Tecido Epitelial Glandular Anfícrino (Cordonal)", "Célula Principal (Zimogênica) / Tecido Epitelial Glandular Exócrino (Glândulas Fúndicas)"], 
+            correct: "Célula Parietal (Oxíntica) / Tecido Epitelial Glandular Exócrino (Glândulas Gástricas)", 
+            explanation: "As células parietais produzem HCl e sua rica rede de canalículos e mitocôndrias atrai intensamente o corante eosina (conferindo a cor rosa forte no tecido glandular)." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.32 (2).jpeg", 
+            text: "Observando a grossa camada pálida superficial, responda: Qual é este órgão/região tegumentar? Além disso, especifique o tipo de tecido que a produz e forma.", 
+            options: ["Pele Espessa (Glabra) / Tecido Epitelial Estratificado Pavimentoso Queratinizado", "Esôfago Inferior / Tecido Epitelial Cilíndrico Pseudoestratificado Secretor", "Palato Mole e Faringe / Tecido Epitelial Estratificado Pavimentoso Sem Queratina", "Vagina (Mucosa Seca) / Tecido Epitelial Estratificado de Transição"], 
+            correct: "Pele Espessa (Glabra) / Tecido Epitelial Estratificado Pavimentoso Queratinizado", 
+            explanation: "Peles muito sujeitas a traumas severos ininterruptos (palmas/plantas) produzem estrato córneo colossal (fita rosa anucleada) sobre o tecido pavimentoso de sustentação basal." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.32 (3).jpeg", 
+            text: "Observando as células em formato de cálice intercaladas, responda: Qual é a principal função combinada dessa barreira celular? Além disso, especifique o tipo de tecido presente.", 
+            options: ["Absorver nutrientes e secretar muco lubrificante constante / Tecido Epitelial Cilíndrico Simples com Células Caliciformes e Microvilosidades", "Ciliar partículas estranhas e aquecer os gases inspirados / Tecido Epitelial Pseudoestratificado Cilíndrico Ciliado", "Digerir a celulose alimentar via pepsina de amplo espectro / Tecido Epitelial Cilíndrico Estratificado", "Detectar variações de pH no filtrado renal para ajustar fluxo / Tecido Epitelial Cúbico Alto Especializado"], 
+            correct: "Absorver nutrientes e secretar muco lubrificante constante / Tecido Epitelial Cilíndrico Simples com Células Caliciformes e Microvilosidades", 
+            explanation: "As caliciformes lubrificam o quimo denso para não agredir os frágeis e abundantes enterócitos (cilíndricos e microvilosos) que executam a assimilação digestiva fina." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.33.jpeg", 
+            text: "Observando o espesso e grande nódulo hipercorado, responda: Qual é a função principal dessa massa ovalada? Além disso, especifique o tecido conjuntivo especial subjacente.", 
+            options: ["Vigilância imunológica primária contra antígenos intraluminais invasores / Tecido Conjuntivo Reticular (Preenchido por Linfócitos Nodulares)", "Contração autônoma basal da túnica mucosa rítmica / Tecido Muscular Liso Intestinal (Muscularis Mucosae)", "Secreção endócrina massiva de Peptídeo Vasoativo Intestinal / Tecido Epitelial Glandular Endócrino Folicular", "Digestão apócrina de triglicerídeos alimentares longos / Tecido Adiposo Multilocular Glandular"], 
+            correct: "Vigilância imunológica primária contra antígenos intraluminais invasores / Tecido Conjuntivo Reticular (Preenchido por Linfócitos Nodulares)", 
+            explanation: "Os folículos linfoides (MALT/GALT) são as bases imunes de sentinela para impedir que patógenos ingeridos pela via oral atinjam a via sanguínea. Assentam em tecido reticular." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.33 (1).jpeg", 
+            text: "Focando na estrutura indicada pela seta vermelha no triângulo conjuntivo, responda: Qual vaso vascular é este? Além disso, especifique o tipo de tecido formador de sua camada concêntrica evidente.", 
+            options: ["Ramo da Artéria Hepática / Tecido Muscular Liso", "Ramo da Veia Porta / Tecido Conjuntivo Elástico Denso", "Ducto Biliar Intra-Hepático / Tecido Epitelial Cúbico Simples", "Canalículo Linfático Reticular / Tecido Epitelial Pavimentoso Simples Fenestrado"], 
+            correct: "Ramo da Artéria Hepática / Tecido Muscular Liso", 
+            explanation: "Na tríade portal, a artéria salta aos olhos pela espessa camada muscular cor de rosa e lúmen bem menor em relação ao grande lúmen colapsado da veia porta adjacente." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.33 (2).jpeg", 
+            text: "Observando as glândulas invaginadas em formato de tubo e a planura sem projeções (sem vilosidades), responda: Qual é este órgão? Além disso, especifique o tecido de revestimento predominante.", 
+            options: ["Intestino Grosso (Cólon) / Tecido Epitelial Cilíndrico Simples com Células Caliciformes", "Estômago (Fundo) / Tecido Epitelial Cilíndrico Simples Mucossecretor", "Intestino Delgado (Íleo) / Tecido Epitelial Pseudoestratificado Cilíndrico Ciliado", "Vesícula Biliar e Ductor Cístico / Tecido Epitelial Cilíndrico Estratificado Escamoso"], 
+            correct: "Intestino Grosso (Cólon) / Tecido Epitelial Cilíndrico Simples com Células Caliciformes", 
+            explanation: "As Criptas de Lieberkühn dominam o cólon. A inexistência de vilos e a extrema profusão das células mucosas para permitir a passagem do bolo fecal sólido caracterizam tal tecido." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.33 (3).jpeg", 
+            text: "Focando nas fendas capilares tortuosas entre os cordões de tecido, responda: Qual é a função principal desses estreitos capilares? Além disso, especifique o órgão e o tecido epitelial.", 
+            options: ["Promover extrema e lenta troca gasosa e metabólica celular / Fígado / Tecido Epitelial Pavimentoso Simples (Endotélio Sinusoide Descontínuo)", "Filtrar ativamente hemácias senescentes desgastadas da circulação / Baço / Tecido Epitelial Cúbico com Macrófagos Fixos", "Reabsorver 100% da glicose e aminoácidos para o plasma circulante / Rim / Tecido Epitelial Cúbico Simples com Microvilos", "Oxigenar alvéolos / Pulmão / Tecido Epitelial Pavimentoso Estratificado Respiratório"], 
+            correct: "Promover extrema e lenta troca gasosa e metabólica celular / Fígado / Tecido Epitelial Pavimentoso Simples (Endotélio Sinusoide Descontínuo)", 
+            explanation: "A lentidão extrema provocada pela vasta anastomose dos capilares sinusóides permite ao endotélio finíssimo entregar tudo que veio na veia porta diretamente para as enzimas do fígado." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.33 (4).jpeg", 
+            text: "Observando as digitações longas que se estendem do tubo basal, responda: Qual é a função basilar anatômica dessas projeções? Além disso, especifique o órgão e seu tecido preenchedor central.", 
+            options: ["Extrema amplificação da superfície de interface contato/absorção nutritiva / Intestino Delgado / Tecido Conjuntivo Frouxo da Lâmina Própria", "Tracionar o bolo alimentar em direção ao esfíncter anal ativo / Intestino Grosso / Tecido Muscular Estriado Esquelético", "Criação de turbilhonamento fluido espumoso de muco no lúmen / Estômago Antral / Tecido Muscular Liso Contínuo", "Absorção gasosa no parênquima / Brônquios / Tecido Cartilaginoso Hialino Ciliado"], 
+            correct: "Extrema amplificação da superfície de interface contato/absorção nutritiva / Intestino Delgado / Tecido Conjuntivo Frouxo da Lâmina Própria", 
+            explanation: "As vilosidades são o milagre evolutivo do intestino delgado. Recheadas de conjuntivo frouxo leniente, permitem a perfusão capilar total, ampliando em centenas de vezes a área útil de captação tecidual." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 19.53.33 (5).jpeg", 
+            text: "Focando na área macroscópica em formato hexagonal apontada, responda: Qual é a identidade morfológica desse maciço perfeitamente contornado? Além disso, especifique o órgão e o tecido epitelial do qual ele é feito.", 
+            options: ["Lóbulo Hepático Clássico Anatômico / Fígado / Tecido Epitelial Glandular Misto Anfícrino (Cordões de Hepatócitos radiais)", "Lóbulo Esplênico Pulposo Filtrante / Baço / Tecido Conjuntivo Reticular Linfocitário Branco", "Pirâmide de Malpighi Medular / Rim / Tecido Epitelial Cúbico Formador de Ductos Coletores e Alças", "Ácino Pancreático Mucoso / Pâncreas / Tecido Epitelial Glandular Exócrino Seromucoso Intercalado"], 
+            correct: "Lóbulo Hepático Clássico Anatômico / Fígado / Tecido Epitelial Glandular Misto Anfícrino (Cordões de Hepatócitos radiais)", 
+            explanation: "Com a veia central como eixo de uma roda de bicicleta, e os hepatócitos como aros irradiando para as tríades nos aros externos, a forma hexagonal deste lóbulo coordena todo o complexo tecido exócrino/endócrino do fígado." 
+        },
+
+        // LOTE 7
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.56.jpeg", 
+            text: "Observando os cortes tubulares espessos contendo bordas internas felpudas borradas, responda: Qual é o órgão retratado? Além disso, especifique o tipo de tecido formador das referidas estruturas luminais túbulofiliares.", 
+            options: ["Rim (Túbulos Contorcidos Proximais Corticais) / Tecido Epitelial Cúbico Simples com Microvilosidades apicais", "Fígado (Canalículos Biliares de Hering) / Tecido Epitelial Pavimentoso Simples e Liso", "Pulmão (Bronquíolos Terminais de transição) / Tecido Epitelial Cilíndrico Estratificado Ciliado e Claro", "Pâncreas (Ductos Excretores Maiores Interlobulares) / Tecido Epitelial Cilíndrico Pseudoestratificado Seco"], 
+            correct: "Rim (Túbulos Contorcidos Proximais Corticais) / Tecido Epitelial Cúbico Simples com Microvilosidades apicais", 
+            explanation: "As microvilosidades apicais que formam a clássica 'borda em escova' obliteram um pouco a luz do tubo, gerando uma altíssima recaptação ativa e dependente no tecido renal proximal do paciente." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.55 (3).jpeg", 
+            text: "Focando na seta fina voltada para a base da parede tubular complexa, responda: Qual célula está sendo primariamente apontada e ancorada nela? Além disso, especifique o tipo de tecido orgânico em que atua preeminentemente.", 
+            options: ["Célula de Sertoli somática / Tecido Epitelial Estratificado Germinativo do Túbulo Seminífero Masculino", "Célula Mioide peritubular / Tecido Conjuntivo Denso Fibrilar Intersticial Glandular", "Célula Granulosa folicular ovariana / Tecido Epitelial Cúbico Estratificado Matutino do Córtex", "Macrófago Fixo Residente / Tecido Conjuntivo Frouxo do Epidídimo Enovelado Periférico"], 
+            correct: "Célula de Sertoli somática / Tecido Epitelial Estratificado Germinativo do Túbulo Seminífero Masculino", 
+            explanation: "As células de Sertoli não geram espermatozoides, mas as suas ramificações abraçam toda a espessura do epitélio para orquestrar e zelar pela viabilidade imunológica do tecido germinativo." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.55 (2).jpeg", 
+            text: "Corte de cordões celulares ricamente supridos de sangue sem formar ductos. Responda: Qual é o órgão exibido recheado de células tingidas de rosa e roxo? Especifique o tecido global de sua estrutura endócrina primária.", 
+            options: ["Adeno-hipófise Glândula Pituitária Anterior / Tecido Epitelial Glandular Endócrino Cordonal de Secreção Direta", "Medula da Glândula Suprarrenal ou Adrenal / Tecido Nervoso Modificado (Feocromócitos Aminérgicos)", "Paratireoide Central Secundária / Tecido Epitelial Glandular Cordonal (Células Principais Homogêneas Claras)", "Pâncreas (Ilhotas Circulares) / Tecido Epitelial Glandular Endócrino Folícular de Langerhans"], 
+            correct: "Adeno-hipófise Glândula Pituitária Anterior / Tecido Epitelial Glandular Endócrino Cordonal de Secreção Direta", 
+            explanation: "A maciça coloração dupla e salpicada das células basófilas e acidófilas nos cordões teciduais banhados por capilares caracteriza a poderosa adeno-hipófise mestre metabólica." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.55 (1).jpeg", 
+            text: "Observando o amontoado celular circular mais claro encrostado e circundado por unidades glandulares serosas ríspidas e escuras, responda: Qual é a função endócrina principal desta estrutura? Especifique o órgão e o tecido formador dessa estrutura circular isolada.", 
+            options: ["Sintetizar e secretar insulina e glucagon diretamente no plasma / Pâncreas / Tecido Epitelial Glandular Endócrino Cordonal das Ilhotas", "Ultrafiltração passiva hidrostática do plasma em urina livre / Rim / Tecido Epitelial Pavimentoso Glomerular Fendido", "Contração peritubular autônoma visceral expiratória / Próstata / Tecido Muscular Liso Endócrino Fibrilar", "Depuração dos Linfócitos Imunocompetentes Ativos / Baço / Tecido Conjuntivo Reticular (Manto Linfoide e Polpa)"], 
+            correct: "Sintetizar e secretar insulina e glucagon diretamente no plasma / Pâncreas / Tecido Epitelial Glandular Endócrino Cordonal das Ilhotas", 
+            explanation: "Esse grupo ilhado de tecido endócrino repousa em pleno mar de tecido exócrino pancreático. As Ilhotas de Langerhans garantem que não entremos em comas hipo/hiperglicêmicos vitais." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.55.jpeg", 
+            text: "Observando a microscopia de unidades serosas, há focos esparsos indicando células claras flutuando sozinhas invaginadas no meio da luz escura dos ácinos serosos glandulares. Qual célula intra-acinar é esta? Especifique o órgão e o seu tecido primordial formador.", 
+            options: ["Célula Centroacinar ductal intra-luminal / Pâncreas / Tecido Epitelial Glandular Exócrino Acinoso Tubo-Seroso de Fundo Cego", "Célula Enteroendócrina difusa gástrica / Estômago Fúndico / Tecido Epitelial Cilíndrico Simples de Glândulas Tubulares Retas", "Célula C (Parafolicular) difusa inter-glandular / Tireoide / Tecido Epitelial Glandular Endócrino Folicular Vesicular Redondo", "Célula Mioepitelial Periférica abraçadora de unidades / Glândula Sudorípara Apócrina / Tecido Muscular Liso Epitelióide Basal"], 
+            correct: "Célula Centroacinar ductal intra-luminal / Pâncreas / Tecido Epitelial Glandular Exócrino Acinoso Tubo-Seroso de Fundo Cego", 
+            explanation: "As células centroacinares marcam o epitélio do ducto invaginando a parede acinar, constituindo uma prova cabal tecidual diagnóstica inconfundível para o tecido pancreático." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.54 (3).jpeg", 
+            text: "O recorte visualiza um glomérulo central ladeado pelas setas. Qual é a principal função histofisiológica desse compartimento delimitado pelas setas? Além disso, especifique o tecido da fina camada apontada pela seta azul do lado direito extracapilar.", 
+            options: ["Conter o vazamento do ultrafiltrado plasmático impedindo extravio tecidual da urina em formação / Tecido Epitelial Pavimentoso Simples da Cápsula Parietal", "Reabsorver seletivamente todo o Sódio e Água circulante da luz / Tecido Epitelial Cúbico Simples Intersticial dos Túbulos", "Produzir eritropoietina em reposta hipóxica sanguínea sistêmica / Tecido Conjuntivo Reticular Mesangial de Suporte Imunológico", "Absorver glicose basal pela membrana apical espessa filtrante / Tecido Epitelial Cilíndrico Alto Podocitário Modificado Parietal"], 
+            correct: "Conter o vazamento do ultrafiltrado plasmático impedindo extravio tecidual da urina em formação / Tecido Epitelial Pavimentoso Simples da Cápsula Parietal", 
+            explanation: "Sem a fina e robusta camada pavimentosa de tecido (folheto parietal capsular de Bowman), o rim apenas vilaria um vazamento sanguíneo cego sem fluxo condicionado ordenado e pressórico tubular." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.54 (2).jpeg", 
+            text: "O corte topográfico ilustra transição dramática da anatomia (linha azul cortical para amarela medular) ao lado esquerdo da linha divisória. Qual é a justificativa de separar estes limites com o nome Córtex e Medula Renal? Especifique o tecido dos túbulos perfeitamente dispostos longitudinalmente na área amarela inferior medular rebaixada.", 
+            options: ["O Córtex possui toda a zona vascular filtrante com os glomérulos corpúsculares densos, enquanto a medula possui apenas longas e finas tubulações desprovidas de corpúsculos / Tecido Epitelial Cúbico a Cilíndrico Simples de Ductos Retos", "O Córtex concentra urina passivamente com alças em U puras exclusivas e finas, enquanto a Medula filtra o sangue maciçamente e metabolicamente ativa / Tecido Epitelial Pseudoestratificado Denso", "O Córtex possui tecido glandular endócrino exclusivo, enquanto a Medula armazena a urina transitória para a pelve esticável sem modificar fluxo hidroeletrolítico vital / Tecido Muscular Liso Puro", "Nenhuma distinção estrutural histológica, a divisão serve à fisiologia bruta grosseira não baseada no parênquima epitelial / Tecido Conjuntivo Frouxo Fibrilar"], 
+            correct: "O Córtex possui toda a zona vascular filtrante com os glomérulos corpúsculares densos, enquanto a medula possui apenas longas e finas tubulações desprovidas de corpúsculos / Tecido Epitelial Cúbico a Cilíndrico Simples de Ductos Retos", 
+            explanation: "Ao olho nú sob a lente, a simples observação de uma bolinha glomerular vermelha elimina a medula e sela o diagnóstico de tecido cortical reativo sem titubeio nenhum do histologista avaliador da peça." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.54 (1).jpeg", 
+            text: "Corte mostrando bolhas amorfas e acelulares formadoras de vesículas residuais isolantes no centro glândular. Responda: Qual é o órgão onde se alocam esses cistos? Além disso, especifique o tecido embrionário derivado que compõe a zona de fenda intermédia em contato basofílico cístico primário à esquerda.", 
+            options: ["Glândula Hipófise (Porção Intermédia Pituitária) / Tecido Epitelial Glandular Cúbico Derivado do Ectoderma Oral Primitivo de Rathke", "Glândula Pineal (Holocefálica Central) / Tecido Nervoso Mesenquimal Pial Modificado Com Acúmulo Calco-Fosfático", "Glândula Paratireoide Inferior Bilateral Oculta / Tecido Epitelial Cordonal Derivado da Faringe Fibrilar e Bolsas Branquiais Enzimáticas", "Glândula Tireoide Lóbulo Piramidal Mediano Anômalo / Tecido Epitelial Folicular Cúbico Alto e Cilíndrico Derivado Sublingual e Duto Tireoglosso Fibrado"], 
+            correct: "Glândula Hipófise (Porção Intermédia Pituitária) / Tecido Epitelial Glandular Cúbico Derivado do Ectoderma Oral Primitivo de Rathke", 
+            explanation: "A boca migratória fetal que subiu para o encéfalo em formação deixa esse legado anatômico visual na forma da pars intermédia repleta de fluido não-glandular tecidual cístico residual oco." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.54.jpeg", 
+            text: "Parede oca sem qualquer glândula fúndica própria invaginada ou mesmo vilosidade estrita isolada intestinal, mas fortemente preagueada macroscopicamente sobre sua fibra muscular compacta exposta inferiormente. Qual é este órgão? Especifique o tecido epitelial absorvível exposto.", 
+            options: ["Vesícula Biliar Sacular Concêntrica Isolada Sem Submucosa Lassa / Tecido Epitelial Cilíndrico Simples Revestidor Sem Caliciformes Absorvível Ricamente Irrigado", "Bexiga Urinária Distensível Elástica Contráctil / Tecido Epitelial de Transição (Urotelial Cístico Multiestratificado Modulável) Protetivo Tóxico", "Duto Deferente Epididimário Reprodutor Alongado Tubo / Tecido Epitelial Pseudoestratificado Cilíndrico com Longos Estereocílios Apicais Fibrilares Não Móveis Espessos", "Esôfago Superior Contínuo Torácico Proximal Sem Muscular Endócrina / Tecido Epitelial Estratificado Pavimentoso Não Queratinizado Macio Descendente Rápido"], 
+            correct: "Vesícula Biliar Sacular Concêntrica Isolada Sem Submucosa Lassa / Tecido Epitelial Cilíndrico Simples Revestidor Sem Caliciformes Absorvível Ricamente Irrigado", 
+            explanation: "Essas invaginações fakes e confusas chamam-se pseudovilosidades epiteliais mucosas de Rokitansky e revelam a vesícula e seu epitélio simples desidratador do suco hepático concentrando bile lipofílica." 
+        },
+        { 
+            image: "WhatsApp Image 2026-06-21 at 20.13.53.jpeg", 
+            text: "Um agrupamento massivo de células triangulares que exibem fortíssima e evidente dupla coloração subcelular: bases roxo-escuras (basófilas por intenso RER proteico) e ápices intensamente rosados com grânulos isolados aglutinados (eosinófilos zimogênicos) de contornos definidos em cacho de uva cego apical central nulo. Qual é o órgão de secreção massiva em foco? Especifique o tipo de tecido das unidades circulares serosas piramidais predominantes unidas firmes basolaterais acinares exócrinas ativas digestivas puras.", 
+            options: ["Pâncreas Exócrino / Tecido Epitelial Glandular Exócrino Acinoso Seroso de Fundo Cego (Células Acinares Pancreáticas Zimogênicas) Puro", "Fígado Endócrino e Exócrino Anfícrino Misto Irradiado / Tecido Epitelial Glandular Misto Cordonal Hepático Difuso (Hepatócitos Reticulares Maciços) e Glicogênicos Ricos", "Glândula Salivar Sublingual Mista Tubulo-Acinosa Mucosa e Serosa Pálida Esbranquiçada Dilatada Oca / Tecido Epitelial Glandular Exócrino Mucoso (Ácinos Claros de Crescente Seroso Lateral Expresso e Ductos Aparentes Distais)", "Estômago Fúndico Principal e Parietal / Tecido Epitelial Glandular Exócrino Tubular Reto Paralelo Aberto Basal Contínuo (Células Acidófilas Soltas Dispersas Parietais Profundas Cegas Ricas Mitocondriais Oxi)"], 
+            correct: "Pâncreas Exócrino / Tecido Epitelial Glandular Exócrino Acinoso Seroso de Fundo Cego (Células Acinares Pancreáticas Zimogênicas) Puro", 
+            explanation: "Esse aspecto dual (roxa embaixo, rosa em cima) no mesmo microscópio é a assinatura de fábrica de altíssima escala do Pâncreas exócrino, que cospe enzimas proteicas o dia inteiro após uma dieta de gorduras ricas e massivas." 
+        }
     ];
 
     // Algoritmo de Embaralhamento (Fisher-Yates) robusto
@@ -125,7 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let timerInterval;
     let isAnswered = false;
 
-    // Seletores do DOM (Opcionais com blindagem ?.)
+    // Seletores do DOM
     const body = document.body;
     const themeToggle = document.getElementById('theme-toggle');
     const startScreen = document.getElementById('start-screen');
