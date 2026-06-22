@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
-    // BASE 1: QUESTÕES TEÓRICAS (18 Questões)
+    // BASE 1: QUESTÕES TEÓRICAS (30 Questões)
     // ==========================================
     const textQuestionsData = [
+        // 18 Originais
         { text: "01. I - A mucosa é a camada composta por um epitélio cilíndrico simples. II - A submucosa é constituída por tecido conjuntivo frouxo. III- Na mucosa encontram-se células parietais e zimogênicas. A qual órgão se referem essas informações?", options: ["Estômago", "Intestino grosso", "Duodeno", "Esôfago", "Nenhuma das alternativas"], correct: "Estômago", explanation: "Células parietais e principais são exclusivas do estômago." },
         { text: "02. São características histológicas do duodeno:", options: ["Presença de glândulas na submucosa (Brünner).", "Os enterócitos apresentam microvilosidades.", "Presença de poucas células caliciformes.", "Apresenta camada muscular longitudinal e circular.", "Todas as alternativas descritas estão corretas."], correct: "Todas as alternativas descritas estão corretas.", explanation: "O duodeno possui todas essas adaptações absortivas e protetoras." },
         { text: "03. As glândulas de Brünner e o plexo mioentérico podem ser encontrados, respectivamente:", options: ["Camada mucosa do íleo e camada muscular do tubo digestório.", "Camada submucosa do duodeno e camada muscular do tubo digestório.", "Camada mucosa do íleo e camada submucosa do tubo digestório.", "Cavidade oral e submucosa do esôfago."], correct: "Camada submucosa do duodeno e camada muscular do tubo digestório.", explanation: "Brünner é da submucosa duodenal e o plexo de Auerbach fica entre as camadas musculares." },
@@ -20,11 +21,85 @@ document.addEventListener("DOMContentLoaded", () => {
         { text: "15. Paciente com espermatócitos secundários, mas sem espermátides. Assinale a alternativa correta:", options: ["A ausência de espermátides indica bloqueio na meiose II.", "Espermatócitos secundários sofrem mitose.", "A espermatogênese ocorre normalmente sem espermátides.", "A ausência é compensada por proliferação de espermatogônias."], correct: "A ausência de espermátides indica bloqueio na meiose II.", explanation: "Espermatócitos secundários devem completar a Meiose II para formar espermátides." },
         { text: "16. Com relação aos folículos ovarianos e a Falha Ovariana Prematura (FOP), assinale a correta:", options: ["Folículos primordiais produzem estrogênio na FOP.", "Folículos secundários são os mais afetados na FOP.", "Na FOP, há redução significativa dos folículos primordiais (reserva ovariana).", "FOP ocorre por proliferação excessiva de folículos."], correct: "Na FOP, há redução significativa dos folículos primordiais (reserva ovariana).", explanation: "A FOP é o esgotamento precoce dos folículos primordiais." },
         { text: "17. Sobre a histologia uterina, assinale a alternativa correta:", options: ["O endométrio basal sofre descamação durante a menstruação.", "O miométrio é uma camada de tecido conjuntivo frouxo.", "O endométrio funcional apresenta glândulas e estroma especializado.", "A camada serosa responde ao FSH."], correct: "O endométrio funcional apresenta glândulas e estroma especializado.", explanation: "Apenas a camada funcional responde aos ciclos e descama." },
-        { text: "18. Sistema urinário (V/F): (1) Bexiga revestida por epitélio pseudoestratificado. (2) Uretra feminina revestida por urotélio em toda extensão. (3) Uretra masculina revestida apenas por pseudoestratificado.", options: ["V, V, V", "F, F, F", "V, F, V", "F, V, F"], correct: "F, F, F", explanation: "Bexiga tem urotélio; uretra feminina tem estratificado pavimentoso; uretra masculina varia." }
+        { text: "18. Sistema urinário (V/F): (1) Bexiga revestida por epitélio pseudoestratificado. (2) Uretra feminina revestida por urotélio em toda extensão. (3) Uretra masculina revestida apenas por pseudoestratificado.", options: ["V, V, V", "F, F, F", "V, F, V", "F, V, F"], correct: "F, F, F", explanation: "Bexiga tem urotélio; uretra feminina tem estratificado pavimentoso; uretra masculina varia." },
+        
+        // 12 Novas de Nível Médio/Difícil
+        {
+            text: "EXTRA 01. (Digestório - Difícil) O espaço de Disse (espaço perissinusoidal) no fígado localiza-se entre os hepatócitos e o endotélio sinusoide. Uma célula importante residente neste espaço, responsável por armazenar vitamina A e, em casos de cirrose, transdiferenciar-se para secretar colágeno (fibrose), é a:",
+            options: ["Célula de Ito (Célula Estrelada Hepática)", "Célula de Kupffer", "Hepatócito perilobular", "Célula endotelial fenestrada", "Colangiócito"],
+            correct: "Célula de Ito (Célula Estrelada Hepática)",
+            explanation: "As Células de Ito estocam lipídios (Vitamina A) em estado normal. Em processos inflamatórios/alcoólicos crônicos, perdem essa função e passam a sintetizar colágeno tipo I e III, gerando a cirrose."
+        },
+        {
+            text: "EXTRA 02. (Digestório - Médio) Sobre as glândulas gástricas e a fisiologia da mucosa, a célula responsável pela secreção de fator intrínseco (essencial para absorção de vitamina B12) e a célula que secreta gastrina são, respectivamente:",
+            options: ["Célula Parietal e Célula G (Enteroendócrina)", "Célula Principal e Célula G", "Célula Parietal e Célula D", "Célula Mucosa do colo e Célula G", "Célula Principal e Enterocromafim"],
+            correct: "Célula Parietal e Célula G (Enteroendócrina)",
+            explanation: "As células parietais (oxínticas) produzem HCl e o vital fator intrínseco. As células G, localizadas principalmente no antro pilórico, secretam o hormônio gastrina no sangue."
+        },
+        {
+            text: "EXTRA 03. (Endócrino - Difícil) O trato hipotálamo-hipofisário transporta hormônios sintetizados no hipotálamo para serem armazenados na neuro-hipófise. Os corpos celulares dos neurônios que produzem ADH (Vasopressina) e Ocitocina estão localizados principalmente nos núcleos:",
+            options: ["Supraóptico e Paraventricular", "Ventromedial e Arqueado", "Supraquiasmático e Pré-óptico", "Tuberal e Mamilar", "Centroacinares e Alfa"],
+            correct: "Supraóptico e Paraventricular",
+            explanation: "Os neurônios magnocelulares do núcleo supraóptico sintetizam principalmente ADH, enquanto os do núcleo paraventricular sintetizam predominantemente ocitocina."
+        },
+        {
+            text: "EXTRA 04. (Endócrino - Médio) Na glândula suprarrenal (adrenal), a camada do córtex responsável pela produção de mineralocorticoides (como a aldosterona) e a sua regulação principal ocorrem na:",
+            options: ["Zona Glomerulosa, regulada pela Angiotensina II e Potássio", "Zona Fasciculada, regulada pelo ACTH", "Zona Reticular, regulada pelo ACTH", "Medula, regulada pelo Sistema Nervoso Simpático", "Zona Glomerulosa, regulada exclusivamente pelo ACTH"],
+            correct: "Zona Glomerulosa, regulada pela Angiotensina II e Potássio",
+            explanation: "A zona glomerulosa é a camada mais externa do córtex, responsável pela aldosterona, sendo controlada primariamente pelo sistema Renina-Angiotensina-Aldosterona (e não pelo eixo hipofisário do ACTH)."
+        },
+        {
+            text: "EXTRA 05. (Pele e Anexos - Difícil) Os melanócitos, células responsáveis pela pigmentação da pele e absorção de radiação UV, possuem uma origem embriológica peculiar e localização epitelial estrita. Identifique-as:",
+            options: ["Origem na crista neural, localizados na camada basal", "Origem na mesoderme, localizados na camada espinhosa", "Origem no ectoderma de revestimento, localizados na derme papilar", "Origem na crista neural, localizados na camada granulosa", "Origem no endoderma, localizados na junção dermoepidérmica"],
+            correct: "Origem na crista neural, localizados na camada basal",
+            explanation: "Diferente dos queratinócitos (que vêm do ectoderma superficial), os melanócitos migram da crista neural durante a embriogênese e se instalam no estrato basal da epiderme."
+        },
+        {
+            text: "EXTRA 06. (Pele e Anexos - Médio) Na epiderme, as Células de Langerhans desempenham um papel vital para o sistema imunológico cutâneo. Sua principal função e localização predominante no tecido são:",
+            options: ["Apresentação de antígenos (Células dendríticas) / Camada espinhosa", "Percepção tátil fina (Mecanorreceptores) / Camada basal", "Produção de queratina rígida / Camada granulosa", "Proteção UV (Melanina) / Camada córnea", "Nutrição da epiderme / Camada lúcida"],
+            correct: "Apresentação de antígenos (Células dendríticas) / Camada espinhosa",
+            explanation: "As células de Langerhans são macrófagos especializados (apresentadoras de antígenos) derivadas da medula óssea, que infiltram o estrato espinhoso da epiderme para vigiar invasões microbianas."
+        },
+        {
+            text: "EXTRA 07. (Genital Masculino - Médio) A barreira hemato-testicular é crucial para isolar as células germinativas em estágios avançados do ataque do sistema imune masculino (já que são formadas após a tolerância imunológica). Ela é formada principalmente por:",
+            options: ["Junções oclusivas (tight junctions) entre células de Sertoli adjacentes", "Células mioides peritubulares na lâmina própria", "Junções comunicantes (gap junctions) entre as células de Leydig", "Endotélio contínuo e impenetrável dos capilares testiculares", "Glicoproteínas impermeáveis da túnica albugínea"],
+            correct: "Junções oclusivas (tight junctions) entre células de Sertoli adjacentes",
+            explanation: "As zonas de oclusão lateral das Células de Sertoli dividem o túbulo em compartimento basal (onde o sangue tem acesso às espermatogônias) e adluminal (onde a meiose ocorre isolada e protegida)."
+        },
+        {
+            text: "EXTRA 08. (Genital Feminino - Difícil) Durante a fase lútea do ciclo ovariano, o corpo lúteo se desenvolve sob influência do LH. Quais são os dois tipos celulares que formam o corpo lúteo e qual o principal hormônio secretado por essa estrutura para manter o endométrio?",
+            options: ["Células granulínicas-luteínicas e teca-luteínicas / Progesterona", "Células foliculares e células da teca externa / Estrogênio", "Oócitos secundários e células da granulosa / Inibina", "Células luteínicas e células hilares / Androstenediona", "Células mesoteliais e fibroblásticas / Progesterona"],
+            correct: "Células granulínicas-luteínicas e teca-luteínicas / Progesterona",
+            explanation: "Após a ovulação, a parede do folículo colapsa. As células da granulosa e da teca interna hipertrofiam, acumulam lipídios (luteinização) e passam a secretar massivamente progesterona."
+        },
+        {
+            text: "EXTRA 09. (Urinário - Difícil) O aparelho justaglomerular regula a pressão arterial e a taxa de filtração renal. Ele é composto pela mácula densa, células justaglomerulares e células mesangiais extraglomerulares. Histologicamente, as células justaglomerulares são:",
+            options: ["Células musculares lisas modificadas da arteríola aferente que secretam renina", "Células epiteliais modificadas do túbulo contorcido distal que secretam renina", "Podócitos modificados que contraem o tufo capilar e reduzem o lúmen", "Células endoteliais fenestradas da arteríola eferente", "Fibroblastos da cápsula de Bowman que secretam eritropoietina"],
+            correct: "Células musculares lisas modificadas da arteríola aferente que secretam renina",
+            explanation: "As células justaglomerulares substituem as fibras musculares lisas na túnica média da arteríola aferente. Elas possuem grânulos de renina, que são liberados quando a pressão arterial cai."
+        },
+        {
+            text: "EXTRA 10. (Urinário - Médio) A concentração final da urina ocorre nos ductos coletores renais sob a forte ação do hormônio antidiurético (ADH ou Vasopressina). A nível histocelular, este hormônio atua aumentando a permeabilidade da água induzindo a translocação de:",
+            options: ["Aquaporinas para a membrana apical das células principais do ducto", "Canais de Sódio (ENaC) para a membrana basolateral das células intercalares", "Bombas de Prótons para as células intercalares do tipo A", "Glicoproteínas de Tamm-Horsfall para a membrana do urotélio pélvico", "Canais de Cálcio no túbulo contorcido proximal"],
+            correct: "Aquaporinas para a membrana apical das células principais do ducto",
+            explanation: "O ADH liga-se aos receptores nas células principais do ducto coletor, fazendo com que vesículas contendo Aquaporina-2 se fundam com a membrana celular apical, 'puxando' a água da urina de volta para o sangue."
+        },
+        {
+            text: "EXTRA 11. (Linfático - Médio) O Timo é um órgão linfoide primário caracterizado pela ausência de nódulos linfoides e pela presença exclusiva de Corpúsculos de Hassall. A principal função da complexa 'barreira hemato-tímica' é:",
+            options: ["Impedir que antígenos circulantes entrem em contato com linfócitos T em maturação na região cortical", "Filtrar os antígenos presentes na linfa aferente antes que atinjam a medula", "Destruir eritrócitos senescentes e reciclar ferro no estroma reticular", "Permitir a entrada de linfócitos B para formar centros germinativos", "Secretar timosina diretamente nos capilares sinusoides da medula"],
+            correct: "Impedir que antígenos circulantes entrem em contato com linfócitos T em maturação na região cortical",
+            explanation: "A barreira hemato-tímica blinda o córtex do timo para que os linfócitos T imaturos não sejam precocemente expostos a antígenos do sangue durante a sua 'educação' imune e seleção clonal."
+        },
+        {
+            text: "EXTRA 12. (Linfático - Difícil) No baço, a teoria da 'circulação aberta' é um conceito histofisiológico fascinante. Morfologicamente, ela defende que os capilares penicilares arteriais não se conectam de forma contínua e fechada aos sinusoides venosos, mas sim:",
+            options: ["Despejam o sangue nos cordões esplênicos (de Billroth), forçando as hemácias a se espremerem ativamente para entrar nos sinusoides", "Drenam o sangue diretamente para a veia trabecular, pulando o parênquima linfático", "Lançam o sangue nos vasos linfáticos eferentes da polpa branca (Malpighi)", "Terminam em fundo cego dentro da grossa cápsula conjuntiva esplênica", "Despejam a linfa diretamente no centro germinativo ativando linfócitos T"],
+            correct: "Despejam o sangue nos cordões esplênicos (de Billroth), forçando as hemácias a se espremerem ativamente para entrar nos sinusoides",
+            explanation: "Na circulação aberta do baço, o sangue é 'jogado' na polpa vermelha. As hemácias precisam ser flexíveis o suficiente para se arrastar pelas fendas endoteliais do sinusoide e voltar à circulação. Se estiverem velhas ou rígidas, ficam presas e são fagocitadas pelos macrófagos (hemocaterese)."
+        }
     ];
 
     // ==========================================
-    // BASE 2: LÂMINAS HIGIENIZADAS (65 Questões Célula/Órgão/Função + Tecido)
+    // BASE 2: LÂMINAS HIGIENIZADAS (65 Questões - Estrutura/Órgão/Função + Tecido)
     // ==========================================
     const imageQuestionsData = [
         // LOTE 1
@@ -346,13 +421,13 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { 
             image: "WhatsApp Image 2026-06-21 at 14.48.41.jpeg", 
-            text: "Foco total na rede enovelada altamente capilarizada e suportada internamente por mesângio no polo renal. Qual é este órgão filtrante completo? Especifique o complexo tecido que forma a fenda de filtração com o endotélio vascular (Folheto Visceral).", 
-            options: ["Rim / Tecido Epitelial Pavimentoso Modificado (Células Podocíticas com pedicelos)", "Tireoide / Tecido Epitelial Cúbico Simples com Cílios e Esterocílios Absorvíveis", "Pulmão / Tecido Epitelial Pavimentoso Simples Finíssimo Respiratório (Pneumócitos Tipo 1)", "Baço / Tecido Epitelial Reticular Misto Estelar (Células Dendríticas Folículares)"], 
-            correct: "Rim / Tecido Epitelial Pavimentoso Modificado (Células Podocíticas com pedicelos)", 
-            explanation: "Os glomérulos renais são revestidos visceralmente por podócitos. Eles se abraçam aos capilares deixando finas fendas teciduais pelas quais as proteínas plasmáticas são fisicamente impedidas de vazar para a urina." 
+            text: "O ponteiro destaca o emaranhado de capilares anastomosados sustentados por células mesangiais no interior da cápsula de Bowman. Esse tufo vascular, onde ocorre a filtração do sangue, é denominado:", 
+            options: ["Glomérulo Renal / Tecido Epitelial Pavimentoso Modificado (Endotélio Fenestrado e Podócitos)", "Túbulo Contorcido Proximal / Tecido Epitelial Cúbico", "Mácula Densa / Tecido Epitelial Cilíndrico", "Cápsula Renal / Tecido Conjuntivo Denso"], 
+            correct: "Glomérulo Renal / Tecido Epitelial Pavimentoso Modificado (Endotélio Fenestrado e Podócitos)", 
+            explanation: "O glomérulo é a complexa rede capilar fenestrada localizada dentro do corpúsculo renal, responsável por vazar o ultrafiltrado plasmático sob alta pressão." 
         },
 
-        // LOTE 6 (Estrutura, Órgão, Função e Tecido - NOVAS EXCLUSIVAS)
+        // LOTE 6
         { 
             image: "WhatsApp Image 2026-06-21 at 19.53.32.jpeg", 
             text: "Observando o corte histológico, responda: Qual é a função principal dessa estrutura pontiaguda? Além disso, especifique o tipo de tecido de revestimento.", 
@@ -515,7 +590,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let timerInterval;
     let isAnswered = false;
 
-    // Seletores do DOM
+    // Seletores do DOM (Opcionais com blindagem ?.)
     const body = document.body;
     const themeToggle = document.getElementById('theme-toggle');
     const startScreen = document.getElementById('start-screen');
